@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Italian Plate No2 Expanded Bold.ttf">
+            <string>ItalianPlateNo2Expanded-Bold</string>
+        </array>
+        <array key="Italian Plate No2 Expanded Demibold.ttf">
+            <string>ItalianPlateNo2Expanded-Demibold</string>
+        </array>
+        <array key="Italian Plate No2 Expanded Light.ttf">
+            <string>ItalianPlateNo2Expanded-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="182" id="KGk-i7-Jjw" customClass="ProductCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="182"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="182"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cow-dG-cl7">
+                        <rect key="frame" x="20" y="0.0" width="352" height="182"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nike" translatesAutoresizingMaskIntoConstraints="NO" id="hhC-po-tWw">
+                                <rect key="frame" x="0.0" y="31" width="100" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hhC-po-tWw" secondAttribute="height" multiplier="1:1.2" id="0r5-AX-mmp"/>
+                                    <constraint firstAttribute="height" constant="120" id="B96-YW-F6l"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="25u-OC-C6b">
+                                <rect key="frame" x="116" y="33" width="228" height="149"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Nike" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfY-uN-Keb">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="22"/>
+                                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Men's Air Max 97 Shoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wD9-U6-Ze3">
+                                        <rect key="frame" x="0.0" y="30" width="154" height="16"/>
+                                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 colours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XQ-h2-WFY">
+                                        <rect key="frame" x="0.0" y="54" width="56.5" height="9"/>
+                                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Rd-sh-LwW">
+                                        <rect key="frame" x="0.0" y="71" width="160" height="25"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 500.00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qL-wM-O1e">
+                                                <rect key="frame" x="0.0" y="0.0" width="77.5" height="25"/>
+                                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 200.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsK-j7-QPr">
+                                                <rect key="frame" x="82.5" y="0.0" width="77.5" height="25"/>
+                                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="oX8-sx-XQi"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="2L2-W6-HYo">
+                                        <rect key="frame" x="0.0" y="104" width="228" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldp-Rn-ehq">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="45"/>
+                                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="16"/>
+                                                <state key="normal" title="Select Size">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqt-Fh-nsY">
+                                                <rect key="frame" x="118" y="0.0" width="110" height="45"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.74117647060000003" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="TMc-3i-G9E"/>
+                                                    <constraint firstAttribute="height" constant="45" id="sH8-lx-vMd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Bold" family="Italian Plate No2 Expanded" pointSize="13"/>
+                                                <state key="normal" title="Add to Bag">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hhC-po-tWw" firstAttribute="leading" secondItem="cow-dG-cl7" secondAttribute="leading" id="Epo-6X-LTG"/>
+                            <constraint firstItem="25u-OC-C6b" firstAttribute="leading" secondItem="hhC-po-tWw" secondAttribute="trailing" constant="16" id="QQj-9k-buf"/>
+                            <constraint firstItem="25u-OC-C6b" firstAttribute="top" secondItem="hhC-po-tWw" secondAttribute="top" constant="2" id="h6I-uU-ovT"/>
+                            <constraint firstAttribute="bottom" secondItem="25u-OC-C6b" secondAttribute="bottom" id="qrI-cX-0NO"/>
+                            <constraint firstItem="hhC-po-tWw" firstAttribute="centerY" secondItem="cow-dG-cl7" secondAttribute="centerY" id="wkB-eP-5mW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cow-dG-cl7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="VG9-WN-tzI"/>
+                    <constraint firstAttribute="bottom" secondItem="cow-dG-cl7" secondAttribute="bottom" id="b1R-dY-cfP"/>
+                    <constraint firstItem="cow-dG-cl7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t3c-qS-aOs"/>
+                    <constraint firstAttribute="trailing" secondItem="cow-dG-cl7" secondAttribute="trailing" constant="20" id="xaW-c5-hpG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addBagBtn" destination="Uqt-Fh-nsY" id="vvv-Sw-bb5"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="179.46428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="nike" width="1000" height="667"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Italian Plate No2 Expanded.ttf">
+            <string>ItalianPlateNo2Expanded-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableLabelCell" id="KGk-i7-Jjw" customClass="TableLabelCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOy-er-ZuG">
+                        <rect key="frame" x="20" y="16" width="280" height="12"/>
+                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Regular" family="Italian Plate No2 Expanded" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TOy-er-ZuG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Olx-xV-PdJ"/>
+                    <constraint firstItem="TOy-er-ZuG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="PqS-EX-pd4"/>
+                    <constraint firstAttribute="trailing" secondItem="TOy-er-ZuG" secondAttribute="trailing" constant="20" id="uAW-ra-QDi"/>
+                    <constraint firstItem="TOy-er-ZuG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vD6-R9-GvP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="label" destination="TOy-er-ZuG" id="ZfF-iK-pEN"/>
+            </connections>
+            <point key="canvasLocation" x="-100.00000000000001" y="54.910714285714285"/>
+        </tableViewCell>
+    </objects>
+</document>

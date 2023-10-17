@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoginWithNumberCell" id="KGk-i7-Jjw" customClass="LoginWithNumberCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yin-my-1aI">
+                        <rect key="frame" x="20" y="0.0" width="280" height="60"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yP5-7h-io9" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="108" y="9" width="154" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzw-O5-Bls" customClass="CountryPickerView" customModule="CountryPickerView">
+                                <rect key="frame" x="8" y="8" width="84" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yP5-7h-io9" firstAttribute="width" secondItem="yin-my-1aI" secondAttribute="width" multiplier="0.55" id="83e-fv-m6N"/>
+                            <constraint firstItem="tzw-O5-Bls" firstAttribute="width" secondItem="yin-my-1aI" secondAttribute="width" multiplier="0.3" id="Dbq-4Z-FE9"/>
+                            <constraint firstAttribute="bottom" secondItem="tzw-O5-Bls" secondAttribute="bottom" constant="8" id="GbQ-0Z-ViG"/>
+                            <constraint firstItem="tzw-O5-Bls" firstAttribute="leading" secondItem="yin-my-1aI" secondAttribute="leading" constant="8" id="Ins-hY-ybP"/>
+                            <constraint firstItem="tzw-O5-Bls" firstAttribute="top" secondItem="yin-my-1aI" secondAttribute="top" constant="8" id="WQH-yc-XIL"/>
+                            <constraint firstItem="yP5-7h-io9" firstAttribute="centerY" secondItem="yin-my-1aI" secondAttribute="centerY" multiplier="0.95" id="Z4M-0D-6kj"/>
+                            <constraint firstItem="yP5-7h-io9" firstAttribute="leading" secondItem="tzw-O5-Bls" secondAttribute="trailing" constant="16" id="x6e-iq-1Za"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="yin-my-1aI" secondAttribute="trailing" constant="20" id="DtG-HL-aD7"/>
+                    <constraint firstItem="yin-my-1aI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="G8N-He-2gj"/>
+                    <constraint firstAttribute="bottom" secondItem="yin-my-1aI" secondAttribute="bottom" id="X1R-we-tPC"/>
+                    <constraint firstItem="yin-my-1aI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="b2S-Ve-ctK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="countryCodeView" destination="tzw-O5-Bls" id="CLb-ja-hAj"/>
+                <outlet property="managerView" destination="yin-my-1aI" id="XTz-Uw-h0I"/>
+                <outlet property="mobileNumberTxt" destination="yP5-7h-io9" id="Wro-du-hp6"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="63.616071428571423"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="yP5-7h-io9">
+            <size key="intrinsicContentSize" width="154" height="39.220703125"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

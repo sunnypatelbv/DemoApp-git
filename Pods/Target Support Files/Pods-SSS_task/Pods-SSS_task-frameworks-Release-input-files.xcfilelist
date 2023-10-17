@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-SSS_task/Pods-SSS_task-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/CountryPickerView/CountryPickerView.framework
+${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework
+${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework
+${BUILT_PRODUCTS_DIR}/PickerView/PickerView.framework
+${BUILT_PRODUCTS_DIR}/SimpleCheckbox/SimpleCheckbox.framework
+${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework

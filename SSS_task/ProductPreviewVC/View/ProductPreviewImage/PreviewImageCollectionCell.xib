@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PreviewImageCollectionCell" id="gTV-IL-0wX" customClass="PreviewImageCollectionCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="202" height="183"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="202" height="183"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nikke" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-m8-N1r">
+                        <rect key="frame" x="0.0" y="0.0" width="202" height="183"/>
+                    </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="f6P-5e-QTl">
+                        <rect key="frame" x="39.5" y="155" width="123" height="28"/>
+                    </pageControl>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1dp-m8-N1r" secondAttribute="bottom" id="2gM-dY-zgL"/>
+                <constraint firstAttribute="trailing" secondItem="1dp-m8-N1r" secondAttribute="trailing" id="4ox-IF-MQB"/>
+                <constraint firstItem="1dp-m8-N1r" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ubv-ic-Rdt"/>
+                <constraint firstItem="f6P-5e-QTl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VNk-1P-mxw"/>
+                <constraint firstAttribute="bottom" secondItem="f6P-5e-QTl" secondAttribute="bottom" id="qYi-LD-z62"/>
+                <constraint firstItem="1dp-m8-N1r" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xK7-ll-fz6"/>
+            </constraints>
+            <size key="customSize" width="202" height="183"/>
+            <connections>
+                <outlet property="pageControl" destination="f6P-5e-QTl" id="3wn-mq-SaO"/>
+                <outlet property="productImage" destination="1dp-m8-N1r" id="NRj-QI-zl4"/>
+            </connections>
+            <point key="canvasLocation" x="-82.608695652173921" y="111.49553571428571"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="nikke" width="1000" height="600"/>
+    </resources>
+</document>

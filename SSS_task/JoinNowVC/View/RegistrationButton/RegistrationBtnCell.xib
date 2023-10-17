@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Italian Plate No2 Expanded.ttf">
+            <string>ItalianPlateNo2Expanded-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegistrationBtnCell" id="KGk-i7-Jjw" customClass="RegistrationBtnCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faB-Jz-cZj">
+                        <rect key="frame" x="20" y="10" width="374" height="60"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SAm-HP-Vqq">
+                                <rect key="frame" x="64" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SAm-HP-Vqq" secondAttribute="height" multiplier="1:1" id="Sye-Jo-5rN"/>
+                                    <constraint firstAttribute="width" constant="40" id="oLZ-hm-vEs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-F1-hAC">
+                                <rect key="frame" x="120" y="21.5" width="238" height="17"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Regular" family="Italian Plate No2 Expanded" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SAm-HP-Vqq" firstAttribute="leading" secondItem="faB-Jz-cZj" secondAttribute="leading" constant="64" id="0y9-f5-2Zh"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="F0n-iP-l2L"/>
+                            <constraint firstItem="SAm-HP-Vqq" firstAttribute="centerY" secondItem="faB-Jz-cZj" secondAttribute="centerY" id="NcU-ve-zyC"/>
+                            <constraint firstItem="XE3-F1-hAC" firstAttribute="leading" secondItem="SAm-HP-Vqq" secondAttribute="trailing" constant="16" id="RGJ-ky-W52"/>
+                            <constraint firstItem="XE3-F1-hAC" firstAttribute="centerY" secondItem="faB-Jz-cZj" secondAttribute="centerY" id="bho-0D-ddP"/>
+                            <constraint firstAttribute="trailing" secondItem="XE3-F1-hAC" secondAttribute="trailing" constant="16" id="ciG-2R-1F4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="faB-Jz-cZj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IYz-AR-gR5"/>
+                    <constraint firstAttribute="bottom" secondItem="faB-Jz-cZj" secondAttribute="bottom" constant="10" id="QeX-en-chV"/>
+                    <constraint firstItem="faB-Jz-cZj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Xju-Hb-gAn"/>
+                    <constraint firstAttribute="trailing" secondItem="faB-Jz-cZj" secondAttribute="trailing" constant="20" id="oIO-2l-vw0"/>
+                    <constraint firstItem="faB-Jz-cZj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sOI-V2-gWM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img" destination="SAm-HP-Vqq" id="wno-YM-n1s"/>
+                <outlet property="lblTitle" destination="XE3-F1-hAC" id="oG6-la-5ud"/>
+                <outlet property="viewForItem" destination="faB-Jz-cZj" id="x1c-bb-rxp"/>
+            </connections>
+            <point key="canvasLocation" x="-91.304347826086968" y="65.625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
