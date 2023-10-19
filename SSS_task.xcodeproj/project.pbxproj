@@ -111,6 +111,7 @@
 		40CD053C2ABC346B0075494F /* GetHelpViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CD053A2ABC346B0075494F /* GetHelpViewCell.xib */; };
 		40CD05412ABC49900075494F /* JoinNowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD05402ABC49900075494F /* JoinNowController.swift */; };
 		40CD05452ABC49A00075494F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD05442ABC49A00075494F /* LoginController.swift */; };
+		40F46A872ADFDEBC00550C7C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F46A862ADFDEBC00550C7C /* Constant.swift */; };
 		F690ED36272B70CC1E8ED91F /* Pods_SSS_task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2FA9209CE898EBF3F28D6 /* Pods_SSS_task.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +223,7 @@
 		40CD053A2ABC346B0075494F /* GetHelpViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetHelpViewCell.xib; sourceTree = "<group>"; };
 		40CD05402ABC49900075494F /* JoinNowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNowController.swift; sourceTree = "<group>"; };
 		40CD05442ABC49A00075494F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		40F46A862ADFDEBC00550C7C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A9A2FA9209CE898EBF3F28D6 /* Pods_SSS_task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSS_task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1962DD3191DAFA38DCFEB8B /* Pods-SSS_task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSS_task.debug.xcconfig"; path = "Target Support Files/Pods-SSS_task/Pods-SSS_task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -967,6 +969,7 @@
 		40CD04E92ABB1B210075494F /* SSS_task */ = {
 			isa = PBXGroup;
 			children = (
+				40F46A852ADFDEA700550C7C /* Constants */,
 				4075787A2AD81CA5001622F4 /* Helper */,
 				406F52D82AD7C81F003926EF /* SettingsVC */,
 				406F52D62AD7C800003926EF /* StoresVC */,
@@ -1015,6 +1018,14 @@
 				40CD053A2ABC346B0075494F /* GetHelpViewCell.xib */,
 			);
 			path = GetHelp;
+			sourceTree = "<group>";
+		};
+		40F46A852ADFDEA700550C7C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				40F46A862ADFDEBC00550C7C /* Constant.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		ABB9AB52952251CDFB600E6A /* Frameworks */ = {
@@ -1198,6 +1209,7 @@
 				405CB8872ACC4081006CB598 /* ProductDescriptionCell.swift in Sources */,
 				40754B642AC6E81D00B2FA2D /* ProductInformationModel.swift in Sources */,
 				40CD05412ABC49900075494F /* JoinNowController.swift in Sources */,
+				40F46A872ADFDEBC00550C7C /* Constant.swift in Sources */,
 				40423A892ACFFAF000B538C0 /* ProductCell.swift in Sources */,
 				405CB8722ACC321D006CB598 /* PreviewImageCollectionCell.swift in Sources */,
 				40423A832ACFEB2F00B538C0 /* SectionHeaderCell.swift in Sources */,
