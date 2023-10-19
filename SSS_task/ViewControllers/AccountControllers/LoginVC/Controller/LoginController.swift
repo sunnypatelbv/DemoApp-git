@@ -160,7 +160,6 @@ class LoginController: UIViewController {
             cell.inputTxtField.isSecureTextEntry = true
             cell.tftText = { [weak self] value in
                 self?.dataArr[indexPath.row].txtFieldValue = value
-                //                print(self!.dataArr[indexPath.row].txtFieldValue)
             }
         default :
             return UITableViewCell()

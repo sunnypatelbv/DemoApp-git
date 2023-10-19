@@ -32,6 +32,7 @@ class ExpandableCell: UITableViewCell {
     }
     //MARK: Functions
     func setData(model: ExpandableCellDataModel){
+        headerLabel.text = model.title
         expandableView.isHidden = !model.isExpanded
         accesooryImage.image = (model.isExpanded ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down"))?.withRenderingMode(.alwaysTemplate)
     }

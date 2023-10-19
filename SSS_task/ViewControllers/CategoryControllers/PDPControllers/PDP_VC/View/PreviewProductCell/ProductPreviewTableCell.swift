@@ -17,7 +17,7 @@ class ProductPreviewTableCell: UITableViewCell {
     var previewImageData : [Image] = []
     var currentImageUrl : URL?
     var closure: ((Bool, URL) -> ())?
-    
+    var currentProduct : Int?
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self
@@ -31,6 +31,14 @@ class ProductPreviewTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    //MARK: Functions
+    func showCell( data: PDPModel){
+        if let imageData = data.imageGroups?[currentProduct ?? 0].images{
+            previewImageData =  imageData
+            imageCount = imageData.count
+        }
     }
     
 }
@@ -71,10 +79,6 @@ extension ProductPreviewTableCell: UICollectionViewDelegate, UICollectionViewDat
         return CGSize(width: collectionView.frame.width, height: 325)
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewImageCollectionCell", for: indexPath) as? PreviewImageCollectionCell else {return}
-        print(indexPath)
-    }
     
 
     

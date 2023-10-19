@@ -59,12 +59,8 @@ class PDPViewController: UIViewController {
         let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response,error) in
             guard let data = data, error == nil else {return}
             do {
-                //                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                //                print(json)
                 let json = try JSONDecoder().decode(PDPModel.self, from: data)
                 completionHandler(json)
-                
-//                print(json)
             }
             catch {
                 print("data not encoded")
@@ -88,8 +84,8 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
         case .previewImage:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductPreviewTableCell", for: indexPath) as? ProductPreviewTableCell else {return UITableViewCell()}
             if let imageData = productArr?.imageGroups?[currentProduct].images{
-                cell.previewImageData = imageData
-                cell.imageCount = imageData.count
+                cell.currentProduct = currentProduct
+                cell.showCell(data: productArr!)
                 cell.closure = { [weak self] (value, url) in
                     guard let vc = self?.storyboard?.instantiateViewController(identifier: "ProductImageController") as? ProductImageController else {return}
                     vc.imageURL = url
@@ -130,7 +126,6 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
         case .productDetails:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableCell", for: indexPath) as? ExpandableCell else {return UITableViewCell()}
             cell.setData(model: dataSource[indexPath.row])
-            cell.headerLabel.text = "Product Details"
             if let desc = productArr?.shortDescription {
                 cell.descLabel.text = desc.html2String
             }
@@ -138,18 +133,15 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
         case .deliveryOptions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableCell", for: indexPath) as? ExpandableCell else {return UITableViewCell()}
             cell.setData(model: dataSource[indexPath.row])
-            cell.headerLabel.text = "Delivery Options"
             return cell
         case .returnsAndExchange:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableCell", for: indexPath) as? ExpandableCell else {return UITableViewCell()}
             cell.setData(model: dataSource[indexPath.row])
-            cell.headerLabel.text = "Returns and Exchange"
             cell.descLabel.text = " asbfdhijbswhiefgaiughfiugbiasdhgifjhrsughijpadfiufgjvjkcdnjklvxmnjkxncogjs[ajugur0hgifhiuhhjoihjjiji[hiohiou"
             return cell
         case .termsAndConditions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableCell", for: indexPath) as? ExpandableCell else {return UITableViewCell()}
             cell.setData(model: dataSource[indexPath.row])
-            cell.headerLabel.text = "Terms and Conditions"
             if let desc = productArr?.cTermsAndConditionsText {
                 cell.descLabel.text = desc.html2String
             }
@@ -178,7 +170,6 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch model.identifier{
         case .productDetails, .deliveryOptions, .returnsAndExchange, .termsAndConditions:
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableCell", for: indexPath) as? ExpandableCell else {return}
             dataSource[indexPath.row].isExpanded.toggle()
             tableView.reloadRows(at: [indexPath], with: .automatic)
         case .sizeOption:

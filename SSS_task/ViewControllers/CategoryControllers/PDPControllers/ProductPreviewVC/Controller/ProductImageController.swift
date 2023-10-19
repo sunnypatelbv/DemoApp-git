@@ -25,10 +25,6 @@ class ProductImageController: UIViewController {
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
-    
-
- 
-
 }
 
 extension ProductImageController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -39,25 +35,13 @@ extension ProductImageController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewImageCollectionCell", for: indexPath) as? PreviewImageCollectionCell else {return UICollectionViewCell()}
         if let productImage = imageDataArr[indexPath.row].link{
-            cell.productImage.image = nil
-            guard let url = URL(string: productImage) else {return UICollectionViewCell()}
-            imageURL = url
-            DispatchQueue.global().async {
-                [weak self] in
-                if let data = try? Data(contentsOf: url){
-                    if let image = UIImage(data: data){
-                        DispatchQueue.main.async {
-                            cell.productImage.image = image
-                        }
-                    }
-                }
-            }
+            cell.setupCell(image: productImage)
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.height)
     }
     
 }
