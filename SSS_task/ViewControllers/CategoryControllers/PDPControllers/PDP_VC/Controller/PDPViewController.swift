@@ -31,6 +31,7 @@ class PDPViewController: UIViewController {
     var productArr : PDPModel?
     var dataSource = ExpandableCellDataModel.mockedData
     var currentProduct = 0
+    let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/products/UA1345776-112?select=(*,%20image_groups.(**),%20variation_attributes.(**),%20variation_groups.(**),%20inventory.(**),%20variants.(orderable,%20product_id),%20type.(**),%20variation_values.(**),%20master.(master_id))&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&expand=availability,%20variations,%20images,%20prices,%20promotions&locale=en-AE&all_images=true&action=bestprice"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class PDPViewController: UIViewController {
         tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         tableView.delegate = self
         tableView.dataSource = self
-        fetchData(completionHandler: {[weak self] (data) in
+        APIManager.shared.fetchData(pageUrl: url, dataModel: PDPModel.self, completionHandler: {[weak self] (data) in
             self?.productArr = data
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -51,22 +52,6 @@ class PDPViewController: UIViewController {
         })
         
         // Do any additional setup after loading the view.
-    }
-    
-    //MARK: Functions
-    func fetchData(completionHandler: @escaping (PDPModel)->()){
-        let url = URL(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/products/UA1345776-112?select=(*,%20image_groups.(**),%20variation_attributes.(**),%20variation_groups.(**),%20inventory.(**),%20variants.(orderable,%20product_id),%20type.(**),%20variation_values.(**),%20master.(master_id))&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&expand=availability,%20variations,%20images,%20prices,%20promotions&locale=en-AE&all_images=true&action=bestprice")
-        let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response,error) in
-            guard let data = data, error == nil else {return}
-            do {
-                let json = try JSONDecoder().decode(PDPModel.self, from: data)
-                completionHandler(json)
-            }
-            catch {
-                print("data not encoded")
-            }
-        })
-        task.resume()
     }
 }
 

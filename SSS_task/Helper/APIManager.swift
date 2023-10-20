@@ -23,25 +23,29 @@ final class APIManager{
     static let shared = APIManager()
     private init() {}
     
-    func fetchProducts(completion: @escaping Handler  ){
-        guard let url = URL(string: Constant.API.plpAPI) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data, error == nil else {
-                completion(.failure(.invalidData))
-                return
+    func fetchData<T: Decodable>(pageUrl : String,dataModel : T.Type,completionHandler : @escaping (_ jsonData: T?)->()){
+        if let url = URL(string : pageUrl){
+            let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+                guard let data = data else{
+                    if error == nil{
+                        print("unknown error")
+                    }
+                    return
+                }
+                let httpResponse = (response as! HTTPURLResponse)
+                guard (200...299) ~= httpResponse.statusCode else{
+                    print("StatusCode \(httpResponse.statusCode)")
+                    return
+                }
+                do{
+                    let jsonData = try JSONDecoder().decode(T.self, from: data)
+                    completionHandler(jsonData)
+                }
+                catch{
+                    print(error.localizedDescription)
+                }
             }
-            guard let response = response as? HTTPURLResponse, 200 ... 299 ~= response.statusCode else {
-                completion(.failure(.invalidResponse))
-                return
-            }
-            do {
-                let products = try JSONDecoder().decode(ProductInformationModel.self, from: data)
-                completion(.success(products))
-            } catch {
-                completion(.failure(.network(error)))
-            }
-        }.resume()
-        
-        
+            task.resume()
+        }
     }
 }

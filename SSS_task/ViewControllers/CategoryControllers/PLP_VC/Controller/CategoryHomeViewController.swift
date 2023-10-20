@@ -15,6 +15,8 @@ class CategoryHomeViewController: UIViewController {
     //MARK: Variables
     var productArr = [Hit]()
     var counter = 24
+    let url =  "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/product_search?client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&count=24&expand=prices,%20images,%20represented_products&locale=en-AE&refine=cgid%3Dbrands_nike&refine_1=htype%3Dvariation_group%7Cproduct&refine_2=price%3D(1..)&refine_3=orderable_only%3Dtrue&start=0"
+
     
     
     override func viewDidLoad() {
@@ -23,13 +25,12 @@ class CategoryHomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ProductDetailCollectionCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailCollectionCell")
         self.navigationController?.navigationBar.isHidden = true
-        fetchData(completionHandler: { [weak self] (data) in
-            self!.productArr = data
+        APIManager.shared.fetchData(pageUrl: url, dataModel: ProductInformationModel.self, completionHandler: {[weak self] (data) in
+            self!.productArr = (data?.hits)!
             DispatchQueue.main.async {
                 self!.collectionView.reloadData()
             }
-            
-        }, counter: counter)
+        })
         // Do any additional setup after loading the view.
     }
     
@@ -42,26 +43,6 @@ class CategoryHomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    //MARK: Functions
-    
-    func fetchData(completionHandler: @escaping ([Hit])->(), counter: Int){
-        let url = URL(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/product_search?client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&count=24&expand=prices,%20images,%20represented_products&locale=en-AE&refine=cgid%3Dbrands_nike&refine_1=htype%3Dvariation_group%7Cproduct&refine_2=price%3D(1..)&refine_3=orderable_only%3Dtrue&start=0")
-        let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response,error) in
-            guard let data = data, error == nil else {return}
-            do {
-                let receivedData = try JSONDecoder().decode(ProductInformationModel.self, from: data)
-                completionHandler(receivedData.hits!)
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-            catch {
-                print("data not encoded")
-            }
-        })
-        task.resume()
     }
     
 }
