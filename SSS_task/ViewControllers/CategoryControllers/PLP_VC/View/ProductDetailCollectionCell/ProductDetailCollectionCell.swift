@@ -66,7 +66,7 @@ class ProductDetailCollectionCell: UICollectionViewCell {
     
     func fetchData(){
         
-        var urlComponents = URLComponents(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists/3fddb66d6267c881a67e3cb8cd/items")
+        let urlComponents = URLComponents(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists/3fddb66d6267c881a67e3cb8cd/items")
 //        urlComponents?.queryItems = [
 //            URLQueryItem(name: "product_id", value: "NKBQ4630-004"),
 //            URLQueryItem(name: "type", value: "product"),
@@ -100,7 +100,7 @@ class ProductDetailCollectionCell: UICollectionViewCell {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                 print(json)
                 let wishlistData = try? JSONDecoder().decode(AddWishlistModel.self, from: data)
-                print(wishlistData)
+                
             }
             catch {
                 print(error.localizedDescription)
