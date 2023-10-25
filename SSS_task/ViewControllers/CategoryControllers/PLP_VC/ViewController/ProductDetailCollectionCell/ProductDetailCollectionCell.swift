@@ -65,19 +65,8 @@ class ProductDetailCollectionCell: UICollectionViewCell {
     //MARK: Functions
     
     func fetchData(){
-        
         let urlComponents = URLComponents(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists/3fddb66d6267c881a67e3cb8cd/items")
-//        urlComponents?.queryItems = [
-//            URLQueryItem(name: "product_id", value: "NKBQ4630-004"),
-//            URLQueryItem(name: "type", value: "product"),
-//            URLQueryItem(name: "quantity", value: "1"),
-//            URLQueryItem(name: "public", value: "true"),
-//            URLQueryItem(name: "priority", value: "0")
-//        ]
-//        urlComponents?.percentEncodedUser?.replacingOccurrences(of: "+", with: "&")
         var request = URLRequest(url: (urlComponents?.url)!)
-        
-        
         guard let token = UserDefaults.standard.object(forKey: "authToken") else {return}
         request.httpMethod = "POST"
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
@@ -97,8 +86,8 @@ class ProductDetailCollectionCell: UICollectionViewCell {
                 return
             }
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                print(json)
+//                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+//                print(json)
                 let wishlistData = try? JSONDecoder().decode(AddWishlistModel.self, from: data)
                 
             }
