@@ -23,7 +23,7 @@ final class APIManager{
     static let shared = APIManager()
     private init() {}
     
-    func fetchData<T: Decodable>(pageUrl : String,dataModel : T.Type,completionHandler : @escaping (_ jsonData: T?)->()){
+    func fetchData<T: Decodable>(pageUrl : String,dataModel : T.Type,completionHandler : @escaping (_ jsonData: T?, _ error: Error?)->()){
         if let url = URL(string : pageUrl){
             let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
                 guard let data = data else{
@@ -39,10 +39,10 @@ final class APIManager{
                 }
                 do{
                     let jsonData = try JSONDecoder().decode(T.self, from: data)
-                    completionHandler(jsonData)
+                    completionHandler(jsonData,nil)
                 }
                 catch{
-                    print(error.localizedDescription)
+                    completionHandler(nil,error)
                 }
             }
             task.resume()

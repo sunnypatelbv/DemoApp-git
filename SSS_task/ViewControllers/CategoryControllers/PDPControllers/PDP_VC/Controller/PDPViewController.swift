@@ -44,7 +44,7 @@ class PDPViewController: UIViewController {
         tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         tableView.delegate = self
         tableView.dataSource = self
-        APIManager.shared.fetchData(pageUrl: url, dataModel: PDPModel.self, completionHandler: {[weak self] (data) in
+        APIManager.shared.fetchData(pageUrl: url, dataModel: PDPModel.self, completionHandler: {[weak self] data,error in
             self?.productArr = data
             DispatchQueue.main.async {
                 self?.tableView.reloadData()

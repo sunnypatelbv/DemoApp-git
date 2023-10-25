@@ -39,9 +39,14 @@ class CategoryHomeViewController: UIViewController {
 }
 
 extension CategoryHomeViewController: PLPViewModelDelegate{
+    func onFailure(error: Error?) {
+        print(error?.localizedDescription)
+    }
+    
+        
     func onSuccess() {
         self.collectionView.reloadData()
     }
+    
+  
 }
-
-//MARK: CollectionView Delegates and DataSource
