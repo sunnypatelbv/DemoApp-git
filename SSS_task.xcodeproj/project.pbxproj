@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		402220062AD7B7D700F7E6BE /* WishlistedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402220052AD7B7D700F7E6BE /* WishlistedProducts.swift */; };
 		4022200F2AD7B95100F7E6BE /* BagCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022200E2AD7B95100F7E6BE /* BagCellInfo.swift */; };
+		402305392AE100E5003B9B24 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402305382AE100E5003B9B24 /* Validation.swift */; };
+		4023053C2AE12216003B9B24 /* PDPStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023053B2AE12216003B9B24 /* PDPStringProtocol.swift */; };
+		4023053F2AE12245003B9B24 /* PDPDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023053E2AE12245003B9B24 /* PDPDataExtension.swift */; };
 		4026BF9E2ACD1CC800F10C83 /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4026BF9C2ACD1CC800F10C83 /* ExpandableCell.swift */; };
 		4026BF9F2ACD1CC800F10C83 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4026BF9D2ACD1CC800F10C83 /* ExpandableCell.xib */; };
 		4026BFA22ACD2B7900F10C83 /* ExpandableCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4026BFA12ACD2B7900F10C83 /* ExpandableCellDataModel.swift */; };
@@ -111,6 +114,7 @@
 		40CD053C2ABC346B0075494F /* GetHelpViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CD053A2ABC346B0075494F /* GetHelpViewCell.xib */; };
 		40CD05412ABC49900075494F /* JoinNowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD05402ABC49900075494F /* JoinNowController.swift */; };
 		40CD05452ABC49A00075494F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD05442ABC49A00075494F /* LoginController.swift */; };
+		40F46A872ADFDEBC00550C7C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F46A862ADFDEBC00550C7C /* Constant.swift */; };
 		F690ED36272B70CC1E8ED91F /* Pods_SSS_task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2FA9209CE898EBF3F28D6 /* Pods_SSS_task.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,9 @@
 		058A200C9AC3233D02369EDD /* Pods-SSS_task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSS_task.release.xcconfig"; path = "Target Support Files/Pods-SSS_task/Pods-SSS_task.release.xcconfig"; sourceTree = "<group>"; };
 		402220052AD7B7D700F7E6BE /* WishlistedProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistedProducts.swift; sourceTree = "<group>"; };
 		4022200E2AD7B95100F7E6BE /* BagCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagCellInfo.swift; sourceTree = "<group>"; };
+		402305382AE100E5003B9B24 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		4023053B2AE12216003B9B24 /* PDPStringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDPStringProtocol.swift; sourceTree = "<group>"; };
+		4023053E2AE12245003B9B24 /* PDPDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDPDataExtension.swift; sourceTree = "<group>"; };
 		4026BF9C2ACD1CC800F10C83 /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		4026BF9D2ACD1CC800F10C83 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
 		4026BFA12ACD2B7900F10C83 /* ExpandableCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCellDataModel.swift; sourceTree = "<group>"; };
@@ -222,6 +229,7 @@
 		40CD053A2ABC346B0075494F /* GetHelpViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetHelpViewCell.xib; sourceTree = "<group>"; };
 		40CD05402ABC49900075494F /* JoinNowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNowController.swift; sourceTree = "<group>"; };
 		40CD05442ABC49A00075494F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		40F46A862ADFDEBC00550C7C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A9A2FA9209CE898EBF3F28D6 /* Pods_SSS_task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSS_task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1962DD3191DAFA38DCFEB8B /* Pods-SSS_task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSS_task.debug.xcconfig"; path = "Target Support Files/Pods-SSS_task/Pods-SSS_task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +314,100 @@
 				40366CB12AC3EB2F00FEE6B7 /* BagHomePageController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		402305282AE0FC18003B9B24 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				40CD04EC2ABB1B210075494F /* SceneDelegate.swift */,
+				40CD04EA2ABB1B210075494F /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4023052A2AE0FD37003B9B24 /* AccountControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4023052E2AE0FD7F003B9B24 /* AccountHomeControllers */,
+				406F52C62AD7C41F003926EF /* LoginVC */,
+				406F52C22AD7C228003926EF /* JoinNowVC */,
+				406F52BE2AD7C0BD003926EF /* AccountHomeVC */,
+			);
+			path = AccountControllers;
+			sourceTree = "<group>";
+		};
+		4023052E2AE0FD7F003B9B24 /* AccountHomeControllers */ = {
+			isa = PBXGroup;
+			children = (
+				406F52CB2AD7C510003926EF /* ForgotPwdVC */,
+				406F52D22AD7C6F1003926EF /* OrderVC */,
+				406F52D62AD7C800003926EF /* StoresVC */,
+				406F52D82AD7C81F003926EF /* SettingsVC */,
+			);
+			path = AccountHomeControllers;
+			sourceTree = "<group>";
+		};
+		4023052F2AE0FDB8003B9B24 /* BagControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4022200A2AD7B8EC00F7E6BE /* BagVC */,
+			);
+			path = BagControllers;
+			sourceTree = "<group>";
+		};
+		402305302AE0FDCA003B9B24 /* WishlistControllers */ = {
+			isa = PBXGroup;
+			children = (
+				402220002AD7B73C00F7E6BE /* WishlistVC */,
+			);
+			path = WishlistControllers;
+			sourceTree = "<group>";
+		};
+		402305322AE0FDE9003B9B24 /* CategoryControllers */ = {
+			isa = PBXGroup;
+			children = (
+				403A396F2AD7BB2100587194 /* PLP_VC */,
+				402305332AE0FE11003B9B24 /* PDPControllers */,
+			);
+			path = CategoryControllers;
+			sourceTree = "<group>";
+		};
+		402305332AE0FE11003B9B24 /* PDPControllers */ = {
+			isa = PBXGroup;
+			children = (
+				406F52B92AD7BF36003926EF /* ProductPreviewVC */,
+				406F52B42AD7BE0B003926EF /* PDP_VC */,
+			);
+			path = PDPControllers;
+			sourceTree = "<group>";
+		};
+		402305362AE0FE44003B9B24 /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				4071464C2AC17E4300AD5D17 /* Fonts */,
+				40CD04F32ABB1B230075494F /* Assets.xcassets */,
+			);
+			path = Assests;
+			sourceTree = "<group>";
+		};
+		402305372AE0FE82003B9B24 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				40CD04F52ABB1B230075494F /* LaunchScreen.storyboard */,
+				40CD04F02ABB1B210075494F /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		402305412AE1240F003B9B24 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4023052A2AE0FD37003B9B24 /* AccountControllers */,
+				4023052F2AE0FDB8003B9B24 /* BagControllers */,
+				402305302AE0FDCA003B9B24 /* WishlistControllers */,
+				402305322AE0FDE9003B9B24 /* CategoryControllers */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		4026BF9B2ACD1CA100F10C83 /* ExpandableCell */ = {
@@ -528,6 +630,8 @@
 			isa = PBXGroup;
 			children = (
 				405CB85E2ACC1142006CB598 /* PDPViewController.swift */,
+				4023053B2AE12216003B9B24 /* PDPStringProtocol.swift */,
+				4023053E2AE12245003B9B24 /* PDPDataExtension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -932,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				4075787B2AD81CB6001622F4 /* APIManager.swift */,
+				402305382AE100E5003B9B24 /* Validation.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -950,7 +1055,6 @@
 			children = (
 				40CD04E92ABB1B210075494F /* SSS_task */,
 				40CD04E82ABB1B210075494F /* Products */,
-				4071464C2AC17E4300AD5D17 /* Fonts */,
 				04C138DA08568E93228A0A58 /* Pods */,
 				ABB9AB52952251CDFB600E6A /* Frameworks */,
 			);
@@ -967,25 +1071,13 @@
 		40CD04E92ABB1B210075494F /* SSS_task */ = {
 			isa = PBXGroup;
 			children = (
+				402305412AE1240F003B9B24 /* ViewControllers */,
+				402305372AE0FE82003B9B24 /* Storyboard */,
+				402305282AE0FC18003B9B24 /* AppDelegate */,
+				40F46A852ADFDEA700550C7C /* Constants */,
 				4075787A2AD81CA5001622F4 /* Helper */,
-				406F52D82AD7C81F003926EF /* SettingsVC */,
-				406F52D62AD7C800003926EF /* StoresVC */,
-				406F52D22AD7C6F1003926EF /* OrderVC */,
-				406F52CB2AD7C510003926EF /* ForgotPwdVC */,
-				406F52C62AD7C41F003926EF /* LoginVC */,
-				406F52C22AD7C228003926EF /* JoinNowVC */,
-				406F52BE2AD7C0BD003926EF /* AccountHomeVC */,
-				406F52B92AD7BF36003926EF /* ProductPreviewVC */,
-				406F52B42AD7BE0B003926EF /* PDP_VC */,
-				403A396F2AD7BB2100587194 /* PLP_VC */,
-				4022200A2AD7B8EC00F7E6BE /* BagVC */,
-				402220002AD7B73C00F7E6BE /* WishlistVC */,
-				40CD04EA2ABB1B210075494F /* AppDelegate.swift */,
-				40CD04EC2ABB1B210075494F /* SceneDelegate.swift */,
+				402305362AE0FE44003B9B24 /* Assests */,
 				40CD04F82ABB1B230075494F /* Info.plist */,
-				40CD04F32ABB1B230075494F /* Assets.xcassets */,
-				40CD04F02ABB1B210075494F /* Main.storyboard */,
-				40CD04F52ABB1B230075494F /* LaunchScreen.storyboard */,
 			);
 			path = SSS_task;
 			sourceTree = "<group>";
@@ -1015,6 +1107,14 @@
 				40CD053A2ABC346B0075494F /* GetHelpViewCell.xib */,
 			);
 			path = GetHelp;
+			sourceTree = "<group>";
+		};
+		40F46A852ADFDEA700550C7C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				40F46A862ADFDEBC00550C7C /* Constant.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		ABB9AB52952251CDFB600E6A /* Frameworks */ = {
@@ -1192,12 +1292,14 @@
 				40754B602AC6E3DA00B2FA2D /* MySSSPointsCell.swift in Sources */,
 				403D230F2AD56C6100E35AC5 /* WishlistModel.swift in Sources */,
 				407460A42ABC732700F94DB0 /* SignupEmailCell.swift in Sources */,
+				402305392AE100E5003B9B24 /* Validation.swift in Sources */,
 				40CD04EF2ABB1B210075494F /* AccountViewController.swift in Sources */,
 				402220062AD7B7D700F7E6BE /* WishlistedProducts.swift in Sources */,
 				4075787C2AD81CB6001622F4 /* APIManager.swift in Sources */,
 				405CB8872ACC4081006CB598 /* ProductDescriptionCell.swift in Sources */,
 				40754B642AC6E81D00B2FA2D /* ProductInformationModel.swift in Sources */,
 				40CD05412ABC49900075494F /* JoinNowController.swift in Sources */,
+				40F46A872ADFDEBC00550C7C /* Constant.swift in Sources */,
 				40423A892ACFFAF000B538C0 /* ProductCell.swift in Sources */,
 				405CB8722ACC321D006CB598 /* PreviewImageCollectionCell.swift in Sources */,
 				40423A832ACFEB2F00B538C0 /* SectionHeaderCell.swift in Sources */,
@@ -1208,6 +1310,7 @@
 				406E6FE82AC147B800295F5D /* IconsModel.swift in Sources */,
 				405CB8792ACC3B34006CB598 /* ProductColourCell.swift in Sources */,
 				405CB86B2ACC27B3006CB598 /* ProductPreviewTableCell.swift in Sources */,
+				4023053C2AE12216003B9B24 /* PDPStringProtocol.swift in Sources */,
 				406E6FED2AC14BD200295F5D /* AppOptionsViewCell.swift in Sources */,
 				40CD050F2ABB30B40075494F /* CustomTableHeaderView.swift in Sources */,
 				40CD04EB2ABB1B210075494F /* AppDelegate.swift in Sources */,
@@ -1227,6 +1330,7 @@
 				4026BFA92ACD3C3100F10C83 /* SizeOptionCell.swift in Sources */,
 				407460BE2ABD836D00F94DB0 /* FormFieldCell.swift in Sources */,
 				402B6F662ACE70550040EB72 /* PDPModel.swift in Sources */,
+				4023053F2AE12245003B9B24 /* PDPDataExtension.swift in Sources */,
 				407460DE2ABDA37A00F94DB0 /* AlreadyMemberCell.swift in Sources */,
 				40CD05142ABC11230075494F /* AccountOptionsViewCell.swift in Sources */,
 				40483B8B2AC2ADD000B51BDF /* UseMobileNumberCell.swift in Sources */,

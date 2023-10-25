@@ -8,7 +8,44 @@
 import UIKit
 
 //Singleton Design Pattern
-class APIManager{
+
+enum DataError: Error {
+    case invalidResponse
+    case invalidURL
+    case invalidData
+    case network(Error?)
+}
+
+typealias Handler = (Result<ProductInformationModel, DataError>) -> Void
+
+final class APIManager{
     
     static let shared = APIManager()
+    private init() {}
+    
+    func fetchData<T: Decodable>(pageUrl : String,dataModel : T.Type,completionHandler : @escaping (_ jsonData: T?)->()){
+        if let url = URL(string : pageUrl){
+            let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+                guard let data = data else{
+                    if error == nil{
+                        print("unknown error")
+                    }
+                    return
+                }
+                let httpResponse = (response as! HTTPURLResponse)
+                guard (200...299) ~= httpResponse.statusCode else{
+                    print("StatusCode \(httpResponse.statusCode)")
+                    return
+                }
+                do{
+                    let jsonData = try JSONDecoder().decode(T.self, from: data)
+                    completionHandler(jsonData)
+                }
+                catch{
+                    print(error.localizedDescription)
+                }
+            }
+            task.resume()
+        }
+    }
 }
