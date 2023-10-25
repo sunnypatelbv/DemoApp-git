@@ -129,25 +129,12 @@ struct PDPModel: Codable {
     }
 }
 
-// MARK: - CBadges
-//struct CBadges: Codable {
-//    let automated: [String]?
-//}
-
 // MARK: - CBestPrice
 struct CBestPrice: Codable {
     let value: Double?
     let formatted, message, noteMessage: String?
     let promos: [String]?
 }
-
-// MARK: - CExpress
-//struct CExpress: Codable {
-//    let enabled: Bool?
-//    let quantityForEligible: JSONNull?
-//    let expObj: ExpObj?
-//    let location: Location?
-//}
 
 // MARK: - ExpObj
 struct ExpObj: Codable {
@@ -193,20 +180,6 @@ struct ImageGroup: Codable {
     }
 }
 
-// MARK: - Image
-//struct Image: Codable {
-//    let type: TypeEnum?
-//    let alt: CProductURLName?
-//    let disBaseLink, link: String?
-//    let title: CProductURLName?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case type = "_type"
-//        case alt
-//        case disBaseLink = "dis_base_link"
-//        case link, title
-//    }
-//}
 
 enum TypeEnum: String, Codable {
     case image = "image"
