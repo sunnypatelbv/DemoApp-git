@@ -18,6 +18,10 @@ class CustomTableHeaderView: UITableViewHeaderFooterView, UITextViewDelegate {
     
     
     override func awakeFromNib() {
+        if let name = UserDefaults.standard.string(forKey: "UserName"){
+            nameLabel.text = "HI,\(name)"
+        }
+        
         let text = NSMutableAttributedString(string: "")
         text.addAttribute(NSAttributedString.Key.font,
                           value: UIFont.systemFont(ofSize: 16),

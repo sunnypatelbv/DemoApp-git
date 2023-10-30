@@ -16,7 +16,7 @@ enum DataError: Error {
     case network(Error?)
 }
 
-typealias Handler = (Result<ProductInformationModel, DataError>) -> Void
+
 
 final class APIManager{
     

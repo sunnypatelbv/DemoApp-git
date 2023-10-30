@@ -152,10 +152,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
                     }
                     else if value == "login"{
                         guard let objVC = self?.storyboard?.instantiateViewController(identifier: "LoginController") as? LoginController else {return}
-                        objVC.closure = { [weak self] bool, name in
-                            self?.isUserLoggedin = bool
-                            self?.userName = name
-                        }
                         self?.navigationController?.pushViewController(objVC, animated: true)
                     }
                 }

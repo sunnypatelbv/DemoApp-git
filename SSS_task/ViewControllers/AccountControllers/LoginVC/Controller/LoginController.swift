@@ -113,12 +113,14 @@ class LoginController: UIViewController {
                 do {
                     print(data)
                     let receivedData = try JSONDecoder().decode(LoginResponseData.self, from: data)
-                    //                    let receivedData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                     if response.statusCode == 200{
                         DispatchQueue.main.async {
                             print(response.allHeaderFields["Authorization"]!)
                             print(type(of: response.allHeaderFields["Authorization"]!))
                             self.showAlert(receivedData.firstName ?? "")
+                            if let name = receivedData.firstName {
+                                UserDefaults.standard.set(name, forKey: "UserName")
+                            }
                             self.name = receivedData.firstName!
                             UserDefaults.standard.set(true, forKey: "isUserLoggedInUserDefault")
                             

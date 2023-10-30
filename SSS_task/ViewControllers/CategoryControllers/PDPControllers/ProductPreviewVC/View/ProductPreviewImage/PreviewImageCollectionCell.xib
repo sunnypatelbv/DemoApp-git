@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="202" height="183"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nikke" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-m8-N1r">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nikke" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-m8-N1r">
                         <rect key="frame" x="0.0" y="0.0" width="202" height="183"/>
                     </imageView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="f6P-5e-QTl">
