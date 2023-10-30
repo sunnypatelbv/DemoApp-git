@@ -44,7 +44,7 @@ extension FormFieldCell : UITextFieldDelegate{
         
         if textfield.placeholder == "Email"{
             if let text = textfield.text {
-
+                
                 if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
                     if formFieldValidationObj.validateEmail(text) {
                         floatingLabelTextField.errorMessage = ""

@@ -14,7 +14,7 @@ class ProductDetailCollectionCell: UICollectionViewCell {
     @IBOutlet weak var produtBrandLabel: UILabel!
     @IBOutlet weak var productDescLabel: UILabel! 
     @IBOutlet weak var numberOfColorsLabel: UILabel!
-
+    
     @IBOutlet weak var discountLabel: UILabel! //c_percentage
     @IBOutlet weak var addToWishlistBtn: UIButton!
     @IBOutlet weak var saleLabel: UILabel!
@@ -86,8 +86,8 @@ class ProductDetailCollectionCell: UICollectionViewCell {
                 return
             }
             do {
-//                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-//                print(json)
+                //                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                //                print(json)
                 let wishlistData = try? JSONDecoder().decode(AddWishlistModel.self, from: data)
                 
             }

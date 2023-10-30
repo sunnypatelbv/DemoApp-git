@@ -11,10 +11,10 @@ class ColourPreviewCell: UICollectionViewCell {
     
     //MARK: IBOutlet
     @IBOutlet weak var colourImage: UIImageView!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
 }

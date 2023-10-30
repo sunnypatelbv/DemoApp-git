@@ -19,19 +19,19 @@ class ProductColourCell: UITableViewCell {
     var colourDataArr : [ImageGroup] = []
     var closure: ((Int) -> ())?
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(UINib(nibName: "ColourPreviewCell", bundle: nil), forCellWithReuseIdentifier: "ColourPreviewCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-      
+        
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -40,7 +40,7 @@ class ProductColourCell: UITableViewCell {
 //MARK: CollectionViewDelegates and CollectionViewDataSourtce
 extension ProductColourCell: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return colourCount
+        return colourCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

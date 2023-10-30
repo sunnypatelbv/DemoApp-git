@@ -37,5 +37,5 @@ class PreviewImageCollectionCell: UICollectionViewCell {
             }
         }
     }
-
+    
 }

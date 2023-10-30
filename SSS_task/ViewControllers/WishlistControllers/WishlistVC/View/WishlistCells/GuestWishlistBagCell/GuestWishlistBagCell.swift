@@ -13,11 +13,11 @@ class GuestWishlistBagCell: UICollectionViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var actionBtn: UIButton!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         actionBtn.layer.cornerRadius = 12
     }
-
+    
 }

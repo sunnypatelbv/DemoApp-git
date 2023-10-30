@@ -14,7 +14,7 @@ class CategoryHomeViewController: UIViewController {
     
     //MARK: Variables
     var plpViewModel = PLPViewModel()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -43,10 +43,10 @@ extension CategoryHomeViewController: PLPViewModelDelegate{
         print(error?.localizedDescription)
     }
     
-        
+    
     func onSuccess() {
         self.collectionView.reloadData()
     }
     
-  
+    
 }

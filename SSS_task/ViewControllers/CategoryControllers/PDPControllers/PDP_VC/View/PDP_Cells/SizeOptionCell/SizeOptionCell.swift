@@ -27,10 +27,10 @@ class SizeOptionCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -57,7 +57,7 @@ extension SizeOptionCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionCell", for: indexPath) as? SizeCollectionCell else {return}
+        //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionCell", for: indexPath) as? SizeCollectionCell else {return}
         let cell = collectionView.cellForItem(at: indexPath) as? SizeCollectionCell
         if cell?.label.text == "More"{
             print("show more")

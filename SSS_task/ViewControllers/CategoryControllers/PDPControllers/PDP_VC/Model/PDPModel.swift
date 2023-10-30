@@ -55,7 +55,7 @@ struct PDPModel: Codable {
     let cBestPrice: CBestPrice?
     let cTermsAndConditionsText, cSportDash, cBrandDash: String?
     let cExpress: CExpress?
-
+    
     enum CodingKeys: String, CodingKey {
         case v = "_v"
         case type = "_type"
@@ -171,7 +171,7 @@ struct ImageGroup: Codable {
     let images: [Image]?
     let variationAttributes: [ImageGroupVariationAttribute]?
     let viewType: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case images
@@ -190,7 +190,7 @@ enum TypeEnum: String, Codable {
 struct ImageGroupVariationAttribute: Codable {
     let type, id: String?
     let values: [PurpleValue]?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case id, values
@@ -200,7 +200,7 @@ struct ImageGroupVariationAttribute: Codable {
 // MARK: - PurpleValue
 struct PurpleValue: Codable {
     let type, value: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case value
@@ -215,7 +215,7 @@ struct Inventory: Codable {
     let id: String?
     let orderable, preorderable: Bool?
     let stockLevel: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case ats, backorderable, id, orderable, preorderable
@@ -226,7 +226,7 @@ struct Inventory: Codable {
 // MARK: - Master
 struct Master: Codable {
     let type, masterID: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case masterID = "master_id"
@@ -237,7 +237,7 @@ struct Master: Codable {
 struct TypeClass: Codable {
     let type: String?
     let variationGroup: Bool?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case variationGroup = "variation_group"
@@ -247,7 +247,7 @@ struct TypeClass: Codable {
 // MARK: - ValidFrom
 struct ValidFrom: Codable {
     let validFromDefault: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case validFromDefault = "default"
     }
@@ -258,7 +258,7 @@ struct Variant: Codable {
     let type: String?
     let orderable: Bool?
     let productID: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case orderable
@@ -270,7 +270,7 @@ struct Variant: Codable {
 struct PDPModelVariationAttribute: Codable {
     let type, id, name: String?
     let values: [FluffyValue]?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case id, name, values
@@ -282,7 +282,7 @@ struct FluffyValue: Codable {
     let type, name: String?
     let orderable: Bool?
     let value: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case name, orderable, value
@@ -296,7 +296,7 @@ struct VariationGroup: Codable {
     let orderable: Bool?
     let productID: String?
     let variationValues: VariationValues?
-
+    
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case link, orderable
@@ -313,24 +313,24 @@ struct VariationValues: Codable {
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
-
+    
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true
     }
-
+    
     public var hashValue: Int {
         return 0
     }
-
+    
     public init() {}
-
+    
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
             throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
-
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()

@@ -64,7 +64,7 @@ class JoinNowController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormFieldCell", for: indexPath) as? FormFieldCell else {return UITableViewCell()}
         cell.tftText = { [weak self] value in
             self?.joinNowViewModel.dataArr[indexPath.row].txtFieldValue = value
-
+            
         }
         switch model.identifier{
         case .firstName:
@@ -105,7 +105,7 @@ class JoinNowController: UIViewController {
         }
         return UITableViewCell()
     }
-
+    
     
     func genderCell(model : RegistrationModel, tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GenderCell", for: indexPath) as? GenderCell else {return UITableViewCell()}

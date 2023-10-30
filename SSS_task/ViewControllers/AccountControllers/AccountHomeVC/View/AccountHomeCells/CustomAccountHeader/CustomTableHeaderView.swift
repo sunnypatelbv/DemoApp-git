@@ -40,20 +40,20 @@ class CustomTableHeaderView: UITableViewHeaderFooterView, UITextViewDelegate {
         
         let text2 = NSMutableAttributedString(string: "  or  ")
         text2.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: 0, length: text2.length))
-
+        
         let interactableText2 = NSMutableAttributedString(string: "Login ")
         interactableText2.addAttribute(NSAttributedString.Key.font,
-                                      value: UIFont.systemFont(ofSize: 16),
-                                      range: NSRange(location: 0, length: interactableText2.length))
+                                       value: UIFont.systemFont(ofSize: 16),
+                                       range: NSRange(location: 0, length: interactableText2.length))
         interactableText2.addAttribute(NSAttributedString.Key.font,
-                                      value: UIFont.systemFont(ofSize: 16),
-                                      range: NSRange(location: 0, length: interactableText2.length))
+                                       value: UIFont.systemFont(ofSize: 16),
+                                       range: NSRange(location: 0, length: interactableText2.length))
         interactableText2.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: _NSRange(location: 0, length: interactableText2.length))
         
         // Adding the link interaction to the interactable text
         interactableText2.addAttribute(NSAttributedString.Key.link,
-                                      value: "LogInPseudoLink",
-                                      range: NSRange(location: 0, length: interactableText2.length))
+                                       value: "LogInPseudoLink",
+                                       range: NSRange(location: 0, length: interactableText2.length))
         
         // Adding it all together
         text.append(interactableText)
@@ -70,9 +70,9 @@ class CustomTableHeaderView: UITableViewHeaderFooterView, UITextViewDelegate {
         signinTxtView.isSelectable = true
         signinTxtView.delegate = self
         
-      
         
-    
+        
+        
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {

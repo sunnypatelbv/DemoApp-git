@@ -21,7 +21,7 @@ class WishlistViewModel{
         guard let url = URL(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists") else {return}
         var request = URLRequest(url: url)
         guard let token = UserDefaults.standard.object(forKey: "authToken") else {return}
-//        print(token)
+        //        print(token)
         request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

@@ -76,31 +76,31 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
-        
-        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomTableHeaderView") as? CustomTableHeaderView {
-                headerView.completionHandler = { [weak self] value in
-                    if value == "signin" {
-                        guard let objVC = self?.storyboard?.instantiateViewController(identifier: "JoinNowController") as? JoinNowController else {return}
-                        self?.navigationController?.pushViewController(objVC, animated: true)
-                    }
-                    else if value == "login"{
-                        guard let objVC = self?.storyboard?.instantiateViewController(identifier: "LoginController") as? LoginController else {return}
-                        self?.navigationController?.pushViewController(objVC, animated: true)
-                    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomTableHeaderView") as? CustomTableHeaderView {
+            headerView.completionHandler = { [weak self] value in
+                if value == "signin" {
+                    guard let objVC = self?.storyboard?.instantiateViewController(identifier: "JoinNowController") as? JoinNowController else {return}
+                    self?.navigationController?.pushViewController(objVC, animated: true)
                 }
-                return headerView
+                else if value == "login"{
+                    guard let objVC = self?.storyboard?.instantiateViewController(identifier: "LoginController") as? LoginController else {return}
+                    self?.navigationController?.pushViewController(objVC, animated: true)
+                }
             }
-            return UIView()
+            return headerView
         }
-        
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 100
-            
-        }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return UITableView.automaticDimension
-        }
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+}

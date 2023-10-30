@@ -14,7 +14,7 @@ class WishlistTabHomeController: UIViewController {
     
     //MARK: Variables
     var wishlistViewModel = WishlistViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -45,7 +45,7 @@ class WishlistTabHomeController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-
+    
 }
 
 

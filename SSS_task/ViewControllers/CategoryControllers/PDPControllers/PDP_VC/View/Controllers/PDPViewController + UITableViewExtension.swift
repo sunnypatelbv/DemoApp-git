@@ -32,7 +32,7 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
             DispatchQueue.main.async {
                 cell.collectionView.reloadData()
             }
-
+            
             return cell
         case .colourOption:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductColourCell", for: indexPath) as? ProductColourCell else {return UITableViewCell()}
@@ -47,7 +47,7 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
             DispatchQueue.main.async {
                 cell.collectionView.reloadData()
             }
-//            cell.collectionView.reloadData()
+            //            cell.collectionView.reloadData()
             return cell
         case .productDetail:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductDescriptionCell", for: indexPath) as? ProductDescriptionCell else {return UITableViewCell()}

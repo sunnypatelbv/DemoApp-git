@@ -14,7 +14,7 @@ class ProductDescriptionCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var originalPrice: UILabel!
     @IBOutlet weak var salePrice: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "AED 620.00")
@@ -22,10 +22,10 @@ class ProductDescriptionCell: UITableViewCell {
         originalPrice.attributedText = attributeString
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

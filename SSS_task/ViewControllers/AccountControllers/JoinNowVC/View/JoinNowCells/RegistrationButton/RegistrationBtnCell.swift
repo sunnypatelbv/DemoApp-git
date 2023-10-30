@@ -13,7 +13,7 @@ class RegistrationBtnCell: UITableViewCell {
     @IBOutlet weak var viewForItem: UIView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lblTitle : UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,10 +25,10 @@ class RegistrationBtnCell: UITableViewCell {
         lblTitle.textColor = .white
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

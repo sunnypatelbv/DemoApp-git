@@ -8,7 +8,7 @@
 import UIKit
 
 class CollectionHeaderView: UICollectionReusableView {
-
+    
     //MARK: IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     

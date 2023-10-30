@@ -12,7 +12,7 @@ class FunZoneTableCell: UITableViewCell {
     //MARK: IBOutlet
     @IBOutlet weak var manageView: UIView!
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         manageView.layer.borderWidth = 2
@@ -20,10 +20,10 @@ class FunZoneTableCell: UITableViewCell {
         manageView.layer.borderColor = UIColor.black.cgColor
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

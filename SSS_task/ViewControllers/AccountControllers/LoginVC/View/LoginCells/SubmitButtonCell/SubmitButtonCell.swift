@@ -14,7 +14,7 @@ class SubmitButtonCell: UITableViewCell {
     
     //MARK: Variables
     var closure: ((Bool) -> ())?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         submitBtn.backgroundColor = .darkGray
@@ -23,7 +23,7 @@ class SubmitButtonCell: UITableViewCell {
         submitBtn.layer.cornerRadius = 8
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

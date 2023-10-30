@@ -19,12 +19,12 @@ class AccountOptionsViewCell: UITableViewCell {
         IconsModel(iconTitle: "Settings", iconImgName: "settings")
     ]
     
-//    var iconsArrLogin = [
-//        IconsModel(iconTitle: "Orders", iconImgName: "orders"),
-//        IconsModel(iconTitle: "Returns", iconImgName: "stores"),
-//        IconsModel(iconTitle: "Payment Methods", iconImgName: "settings"),
-//        IconsModel(iconTitle: "Stores", iconImgName: "stores")
-//    ]
+    //    var iconsArrLogin = [
+    //        IconsModel(iconTitle: "Orders", iconImgName: "orders"),
+    //        IconsModel(iconTitle: "Returns", iconImgName: "stores"),
+    //        IconsModel(iconTitle: "Payment Methods", iconImgName: "settings"),
+    //        IconsModel(iconTitle: "Stores", iconImgName: "stores")
+    //    ]
     var changeVC: ((String) -> ())?
     
     

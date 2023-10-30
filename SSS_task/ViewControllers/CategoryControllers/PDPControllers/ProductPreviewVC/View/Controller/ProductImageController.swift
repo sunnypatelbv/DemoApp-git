@@ -15,7 +15,7 @@ class ProductImageController: UIViewController {
     
     //MARK: Variables
     var productImageViewModel = ProductPreviewViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "PreviewImageCollectionCell", bundle: nil), forCellWithReuseIdentifier: "PreviewImageCollectionCell")

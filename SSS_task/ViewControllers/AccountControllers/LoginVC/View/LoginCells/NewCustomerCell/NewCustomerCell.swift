@@ -14,7 +14,7 @@ class NewCustomerCell: UITableViewCell {
     
     //MARK: Variables
     var goToSignin: ((String) -> ())?
-
+    
     override func awakeFromNib() {
         label.isUserInteractionEnabled = true
         super.awakeFromNib()
@@ -40,10 +40,10 @@ class NewCustomerCell: UITableViewCell {
         text.append(interactableText)
         label.attributedText = text
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -51,13 +51,13 @@ class NewCustomerCell: UITableViewCell {
         // handling code
         guard let text = self.label.text else {return}
         let range = (text as NSString).range(of: "Join Now ")
-
+        
         if gesture.didTapAttributedTextInLabel(label: self.label, inRange: range){
             
             goToSignin?("signin")
         }
     }
-
+    
     
 }
 
