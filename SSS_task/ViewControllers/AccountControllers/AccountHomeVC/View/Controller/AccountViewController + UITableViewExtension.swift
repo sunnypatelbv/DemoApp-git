@@ -1,99 +1,33 @@
 //
-//  ViewController.swift
+//  AccountViewController + UITableViewExtension.swift
 //  SSS_task
 //
-//  Created by Sunny Patel on 20/09/23.
+//  Created by Sunny Patel on 30/10/23.
 //
 
 import UIKit
-
-class AccountViewController: UIViewController {
-    
-    //MARK: IBOutlet
-    @IBOutlet weak var tableView: UITableView!
-    
-    var userDefault: Bool {
-        UserDefaults.standard.bool(forKey: "isUserLoggedInUserDefault")
-    }
-//    let userDefault =
-    //MARK: Variables
-    var loggedinDataArr  = [ AccountOptionsModel(isCollection: true, isBannerView: false, isTitle: false,                   identifier: .orderOptions),
-                             AccountOptionsModel(isCollection: false, isBannerView: true, isTitle: false, identifier: .gamePointsBanner),
-                             AccountOptionsModel(isCollection: false, isBannerView: true, isTitle: false, identifier: .funzone),
-                             AccountOptionsModel(isCollection: false, isBannerView: false, isTitle: true, identifier: .accountHeader),
-                             AccountOptionsModel(isCollection: true, isBannerView: false, isTitle: false, identifier: .accountOptions),
-                             AccountOptionsModel(isCollection: false, isBannerView: false, isTitle: true, identifier: .helpHeader),
-                             AccountOptionsModel(isCollection: true, isBannerView: false, isTitle: false, identifier: .helpOptions)
-    ]
-    
-    var dataArr = [
-        AccountOptionsModel(isCollection: true, isBannerView: false, isTitle: false,identifier: .orderOptions),
-        AccountOptionsModel(isCollection: false, isBannerView: true, isTitle: false, identifier: .funzone),
-        AccountOptionsModel(isCollection: false, isBannerView: false, isTitle: true, identifier: .helpHeader),
-        AccountOptionsModel(isCollection: true, isBannerView: false, isTitle: false, identifier: .helpOptions)
-    ]
-    
-    //isUserLoggedInDefault
-    
-    public var isUserLoggedin = false
-    var userName = ""
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "CustomTableHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomTableHeaderView")
-        tableView.register(UINib(nibName: "AccountOptionsViewCell", bundle: nil), forCellReuseIdentifier: "AccountOptionsViewCell")
-        tableView.register(UINib(nibName: "FunZoneTableCell", bundle: nil), forCellReuseIdentifier: "FunZoneTableCell")
-        tableView.register(UINib(nibName: "AppOptionsViewCell", bundle: nil), forCellReuseIdentifier: "AppOptionsViewCell")
-        tableView.register(UINib(nibName: "GetHelpViewCell", bundle: nil), forCellReuseIdentifier: "GetHelpViewCell")
-        tableView.register(UINib(nibName: "MySSSPointsCell", bundle: nil), forCellReuseIdentifier: "MySSSPointsCell")
-        self.navigationController?.navigationBar.isHidden = true
-        
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        tableView.reloadData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-}
 
 //MARK:TableViewDelegate and TableViewDataSource
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if userDefault {
-            return loggedinDataArr.count
+        if accountViewModel.userDefault {
+            return accountViewModel.loggedinDataArr.count
         }
         else {
-            return dataArr.count
+            return accountViewModel.dataArr.count
         }
         //        return dataArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var model : AccountOptionsModel?
-        if userDefault {
-            model = loggedinDataArr[indexPath.row]
+        if accountViewModel.userDefault {
+            model = accountViewModel.loggedinDataArr[indexPath.row]
         }
         else {
-            model = dataArr[indexPath.row]
+            model = accountViewModel.dataArr[indexPath.row]
         }
         switch model?.identifier {
         case .orderOptions:
@@ -170,5 +104,3 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
     }
-
-

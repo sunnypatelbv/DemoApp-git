@@ -24,8 +24,8 @@ extension PDPViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.showCell(data: pdpViewModel.productArr!)
                 cell.closure = { [weak self] (value, url) in
                     guard let vc = self?.storyboard?.instantiateViewController(identifier: "ProductImageController") as? ProductImageController else {return}
-                    vc.imageURL = url
-                    vc.imageDataArr = imageData
+                    vc.productImageViewModel.imageURL = url
+                    vc.productImageViewModel.imageDataArr = imageData
                     self?.present(vc, animated: true, completion: nil)
                 }
             }

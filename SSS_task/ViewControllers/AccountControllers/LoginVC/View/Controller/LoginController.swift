@@ -12,25 +12,8 @@ class LoginController: UIViewController {
     //MARK:IBOutlet
     @IBOutlet weak var tableView: UITableView!
     
-    //MARK: Variables
-    var dataArr = [
-        RegistrationModel(isBtn: false, btnTitle: "", btnImage: "", isLbl: false, lblText: "Email", isTextField: true, txtPlaceholder: "Email",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .email,validationType: .email ),
-        RegistrationModel(isBtn: false, btnTitle: "", btnImage: "", isLbl: true, lblText: "", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .useMobileNumber, validationType: .none),
-        RegistrationModel(isBtn: false, btnTitle: "", btnImage: "", isLbl: false, lblText: "Password", isTextField: true, txtPlaceholder: "Password",txtFieldValue: "", error: "", isSecure: true, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .password,validationType: .password ),
-        RegistrationModel(isBtn: true, btnTitle: "Forgot your password?", btnImage: "", isLbl: false, lblText: "", isTextField: false, txtPlaceholder: "", txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .firstName,validationType: .none ),
-        RegistrationModel(isBtn: true, btnTitle: "Signin", btnImage: "", isLbl: false, lblText: "", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .createAccount,validationType: .none ),
-        RegistrationModel(isBtn: false, btnTitle: "", btnImage: "", isLbl: true, lblText: "Sign up with email address", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .orAndSignUpHeader,validationType: .none ),
-        RegistrationModel(isBtn: true, btnTitle: "Continue with Facebook", btnImage: "facebook", isLbl: false, lblText: "", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .facebook,validationType: .none ),
-        RegistrationModel(isBtn: true, btnTitle: "Continue with Google", btnImage: "google", isLbl: false, lblText: "", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: false, identifier: .google,validationType: .none ),
-        RegistrationModel(isBtn: false, btnTitle: "", btnImage: "", isLbl: false, lblText: "", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: true, identifier: .alreadyMember,validationType: .none )
-        
-    ]
-    var isEmailCell = true
-    var loginValidationObj = Validation()
-    var closure: ((Bool, String) -> ())?
-    var name = ""
-    var nameClosure: ((String) -> ())?
-    var token = ""
+    //MARK:Variables
+    var loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,19 +52,19 @@ class LoginController: UIViewController {
     
     func backtoHome(action: UIAlertAction){
         print("action performed")
-        closure?(true, name)
+        loginViewModel.closure?(true, loginViewModel.name)
         self.navigationController?.popViewController(animated: true)
     }
     
     
     func checkValidation() {
         print("checking validation")
-        if loginValidationObj.validateEmail(dataArr[0].txtFieldValue) && loginValidationObj.validatePassword(dataArr[2].txtFieldValue){
+        if loginViewModel.loginValidationObj.validateEmail(loginViewModel.dataArr[0].txtFieldValue) && loginViewModel.loginValidationObj.validatePassword(loginViewModel.dataArr[2].txtFieldValue){
             print("validation succesful")
             
             //Declare Variables
-            let email = dataArr[0].txtFieldValue
-            let password = dataArr[2].txtFieldValue
+            let email = loginViewModel.dataArr[0].txtFieldValue
+            let password = loginViewModel.dataArr[2].txtFieldValue
             let loginString = String(format: "%@:%@", email, password)
             let loginData = loginString.data(using: String.Encoding.utf8)!
             let base64LoginString = loginData.base64EncodedString()
@@ -121,7 +104,7 @@ class LoginController: UIViewController {
                             if let name = receivedData.firstName {
                                 UserDefaults.standard.set(name, forKey: "UserName")
                             }
-                            self.name = receivedData.firstName!
+                            self.loginViewModel.name = receivedData.firstName!
                             UserDefaults.standard.set(true, forKey: "isUserLoggedInUserDefault")
                             
                             guard let tokenStr = response.allHeaderFields["Authorization"] else {return}
@@ -161,7 +144,7 @@ class LoginController: UIViewController {
             cell.inputTxtField.title = model.lblText
             cell.inputTxtField.isSecureTextEntry = true
             cell.tftText = { [weak self] value in
-                self?.dataArr[indexPath.row].txtFieldValue = value
+                self?.loginViewModel.dataArr[indexPath.row].txtFieldValue = value
             }
         default :
             return UITableViewCell()
@@ -170,18 +153,18 @@ class LoginController: UIViewController {
     }
     
     func mainLoginField(model : RegistrationModel, tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isEmailCell == true {
+        if loginViewModel.isEmailCell == true {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormFieldCell", for: indexPath) as? FormFieldCell else {return UITableViewCell()}
             cell.selectionStyle = .none
             cell.inputTxtField.placeholder = model.txtPlaceholder
             cell.inputTxtField.title = model.lblText
             cell.tftText = { [weak self] value in
-                self?.dataArr[indexPath.row].txtFieldValue = value
+                self?.loginViewModel.dataArr[indexPath.row].txtFieldValue = value
                 //                print(self!.dataArr[indexPath.row].txtFieldValue)
             }
             return cell
         }
-        else if isEmailCell == false {
+        else if loginViewModel.isEmailCell == false {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoginWithNumberCell", for: indexPath) as? LoginWithNumberCell else {return UITableViewCell()}
             return cell
         }
@@ -216,7 +199,7 @@ class LoginController: UIViewController {
     }
     
     func useMobileNumber(model : RegistrationModel, tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isEmailCell == true {
+        if loginViewModel.isEmailCell == true {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UseMobileNumberCell", for: indexPath) as? UseMobileNumberCell else { return UITableViewCell()}
             cell.label.text = "Use your mobile number instead"
             cell.selectionStyle = .none
@@ -244,7 +227,7 @@ class LoginController: UIViewController {
         cell.viewForItem.layer.borderWidth = 2
         cell.viewForItem.layer.borderColor = UIColor.gray.cgColor
         cell.viewForItem.layer.cornerRadius = 12
-        cell.lblTitle.text = dataArr[indexPath.row].btnTitle
+        cell.lblTitle.text = loginViewModel.dataArr[indexPath.row].btnTitle
         
         switch model.identifier {
         case .facebook:
@@ -271,62 +254,5 @@ class LoginController: UIViewController {
         }
         return cell
     }
-    
-    
-    
-    
 }
 
-extension LoginController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArr.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = dataArr[indexPath.row]
-        
-        switch model.identifier{
-        
-        
-        case .email:
-            return mainLoginField(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .password:
-            return textFieldCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .firstName:
-            return forgotPasswordCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .createAccount:
-            return createAccCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .orAndSignUpHeader:
-            return orlabelCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .facebook:
-            return socialCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .google:
-            return socialCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .alreadyMember:
-            return newCustomerCell(model: model, tableView: tableView, cellForRowAt: indexPath)
-        case .useMobileNumber:
-            return useMobileNumber(model: model, tableView: tableView, cellForRowAt: indexPath)
-        default:
-            break
-        }
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = dataArr[indexPath.row]
-        if model.identifier == .useMobileNumber{
-            if isEmailCell == false {
-                isEmailCell = true
-            }else {
-                isEmailCell = false
-            }
-            tableView.reloadData()
-        }
-        
-    }
-}
