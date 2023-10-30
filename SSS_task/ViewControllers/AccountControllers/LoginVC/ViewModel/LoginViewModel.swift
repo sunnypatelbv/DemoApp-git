@@ -28,4 +28,18 @@ class LoginViewModel{
     var name = ""
     var nameClosure: ((String) -> ())?
     var token = ""
+//    let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/auth?locale=en-AE&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77"
+//    let parameters = [
+//        "type": "credentials"
+//    ]
+//
+//    func postLogin(){
+//        APIManager.shared.postRequest(url: url, params: parameters, type: LoginResponseData.self) { [weak self] (data, error) in
+//            if let data = data{
+//                print(data)
+//            } else {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//    }
 }

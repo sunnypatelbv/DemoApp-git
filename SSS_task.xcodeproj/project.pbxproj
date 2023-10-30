@@ -105,6 +105,8 @@
 		408EC74D2AEF808F00ED7F27 /* LoginController + UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EC74C2AEF808F00ED7F27 /* LoginController + UITableViewExtension.swift */; };
 		408EC7532AEF896A00ED7F27 /* ProductPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EC7522AEF896A00ED7F27 /* ProductPreviewViewModel.swift */; };
 		408EC7572AEF8A6200ED7F27 /* ProductImageController + UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EC7562AEF8A6200ED7F27 /* ProductImageController + UICollectionViewExtension.swift */; };
+		408EC75E2AEFD37000ED7F27 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EC75D2AEFD37000ED7F27 /* WishlistViewModel.swift */; };
+		408EC7652AEFD52500ED7F27 /* WishlistTabHomeController + UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EC7642AEFD52500ED7F27 /* WishlistTabHomeController + UICollectionViewExtension.swift */; };
 		40C07EB42ACFBC0700770AFD /* ProductImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C07EB32ACFBC0700770AFD /* ProductImageController.swift */; };
 		40C846792AD7EBB500FF17E0 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C846772AD7EBB500FF17E0 /* CollectionHeaderView.swift */; };
 		40C8467A2AD7EBB500FF17E0 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C846782AD7EBB500FF17E0 /* CollectionHeaderView.xib */; };
@@ -230,6 +232,8 @@
 		408EC74C2AEF808F00ED7F27 /* LoginController + UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginController + UITableViewExtension.swift"; sourceTree = "<group>"; };
 		408EC7522AEF896A00ED7F27 /* ProductPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPreviewViewModel.swift; sourceTree = "<group>"; };
 		408EC7562AEF8A6200ED7F27 /* ProductImageController + UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductImageController + UICollectionViewExtension.swift"; sourceTree = "<group>"; };
+		408EC75D2AEFD37000ED7F27 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
+		408EC7642AEFD52500ED7F27 /* WishlistTabHomeController + UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistTabHomeController + UICollectionViewExtension.swift"; sourceTree = "<group>"; };
 		40C07EB32ACFBC0700770AFD /* ProductImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageController.swift; sourceTree = "<group>"; };
 		40C846772AD7EBB500FF17E0 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		40C846782AD7EBB500FF17E0 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
@@ -284,7 +288,7 @@
 			children = (
 				402220012AD7B74B00F7E6BE /* Model */,
 				402220022AD7B75800F7E6BE /* View */,
-				402220032AD7B75E00F7E6BE /* Controller */,
+				408EC75C2AEFD30400ED7F27 /* ViewModel */,
 			);
 			path = WishlistVC;
 			sourceTree = "<group>";
@@ -300,8 +304,8 @@
 		402220022AD7B75800F7E6BE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				40727C262AD6C9290099A73C /* GuestWishlistBagCell */,
-				402220052AD7B7D700F7E6BE /* WishlistedProducts.swift */,
+				402220032AD7B75E00F7E6BE /* Controller */,
+				408EC7612AEFD38F00ED7F27 /* WishlistCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				40366CBE2AC3F61B00FEE6B7 /* WishlistTabHomeController.swift */,
+				408EC7642AEFD52500ED7F27 /* WishlistTabHomeController + UICollectionViewExtension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -428,8 +433,8 @@
 			children = (
 				4023052A2AE0FD37003B9B24 /* AccountControllers */,
 				4023052F2AE0FDB8003B9B24 /* BagControllers */,
-				402305302AE0FDCA003B9B24 /* WishlistControllers */,
 				402305322AE0FDE9003B9B24 /* CategoryControllers */,
+				402305302AE0FDCA003B9B24 /* WishlistControllers */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1173,6 +1178,23 @@
 			path = PDP_Cells;
 			sourceTree = "<group>";
 		};
+		408EC75C2AEFD30400ED7F27 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				408EC75D2AEFD37000ED7F27 /* WishlistViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		408EC7612AEFD38F00ED7F27 /* WishlistCells */ = {
+			isa = PBXGroup;
+			children = (
+				40727C262AD6C9290099A73C /* GuestWishlistBagCell */,
+				402220052AD7B7D700F7E6BE /* WishlistedProducts.swift */,
+			);
+			path = WishlistCells;
+			sourceTree = "<group>";
+		};
 		40C846762AD7EB9400FF17E0 /* CollectionHeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1204,8 +1226,8 @@
 			isa = PBXGroup;
 			children = (
 				402305412AE1240F003B9B24 /* ViewControllers */,
-				402305372AE0FE82003B9B24 /* Storyboard */,
 				402305282AE0FC18003B9B24 /* AppDelegate */,
+				402305372AE0FE82003B9B24 /* Storyboard */,
 				40F46A852ADFDEA700550C7C /* Constants */,
 				4075787A2AD81CA5001622F4 /* Helper */,
 				402305362AE0FE44003B9B24 /* Assests */,
@@ -1458,9 +1480,11 @@
 				4074609E2ABC617300F94DB0 /* RegistrationBtnCell.swift in Sources */,
 				40483B742AC1B1B400B51BDF /* LoginWithNumberCell.swift in Sources */,
 				408EC7572AEF8A6200ED7F27 /* ProductImageController + UICollectionViewExtension.swift in Sources */,
+				408EC75E2AEFD37000ED7F27 /* WishlistViewModel.swift in Sources */,
 				40CD053B2ABC346B0075494F /* GetHelpViewCell.swift in Sources */,
 				408EC7452AEF7F0400ED7F27 /* JoinNowController + UITableViewExtension.swift in Sources */,
 				407146472AC16B9100AD5D17 /* SettingsViewController.swift in Sources */,
+				408EC7652AEFD52500ED7F27 /* WishlistTabHomeController + UICollectionViewExtension.swift in Sources */,
 				4070E55F2AE912CB0021D8AE /* CategoryHomeViewController + UICollectionViewExtension.swift in Sources */,
 				4026BFA22ACD2B7900F10C83 /* ExpandableCellDataModel.swift in Sources */,
 				402B3A1E2AC58FAD00EAF10A /* LoginResponseData.swift in Sources */,
