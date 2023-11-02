@@ -69,65 +69,40 @@ class LoginController: UIViewController {
             let loginData = loginString.data(using: String.Encoding.utf8)!
             let base64LoginString = loginData.base64EncodedString()
             
+            let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/auth?locale=en-AE&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77"
             
-            //Declare URL
-            guard let url = URL(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/auth?locale=en-AE&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77") else {return}
-            
-            //Declare request
-            var request = URLRequest(url: url)
-            
-            //Method,Body and Headers
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-            request.setValue("redirectURL=https://en-kw.sssports.com/on/demandware.store/Sites-Kuwait-Site/en_KW/Account-OrderDetails?noLocaleRedirect=true&orderID=KW01265419&orderId=KW01265419&client_id=test", forHTTPHeaderField: "Cookie")
-            let parameters: [String: AnyHashable] = [
+            let parameters = [
                 "type": "credentials"
-            ]
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            ] as? [String : Any]
             
-            //Make the request
-            let task = URLSession.shared.dataTask(with: request){ data, response, error in
-                guard let data = data, error == nil else {
-                    return
-                }
+            let header = [
+                "Authorization" : "Basic \(base64LoginString)"
+            ]
+            
+            APIManager.shared.postRequest(url: url, body: parameters, httpHeaders: header, type: LoginResponseData.self) { (data, response, error) in
                 let response = (response as! HTTPURLResponse)
-                print(response.statusCode)
-                do {
-                    print(data)
-                    let receivedData = try JSONDecoder().decode(LoginResponseData.self, from: data)
-                    if response.statusCode == 200{
-                        DispatchQueue.main.async {
-                            print(response.allHeaderFields["Authorization"]!)
-                            print(type(of: response.allHeaderFields["Authorization"]!))
-                            self.showAlert(receivedData.firstName ?? "")
-                            if let name = receivedData.firstName {
-                                UserDefaults.standard.set(name, forKey: "UserName")
-                            }
-                            self.loginViewModel.name = receivedData.firstName!
-                            UserDefaults.standard.set(true, forKey: "isUserLoggedInUserDefault")
-                            
-                            guard let tokenStr = response.allHeaderFields["Authorization"] else {return}
-                            UserDefaults.standard.set(response.allHeaderFields["Authorization"], forKey: "authToken")
-                            UserDefaults.standard.data(forKey: "authToken")
-                            UserDefaults.standard.set(tokenStr, forKey: "authToken")
-                            print(tokenStr)
+                if response.statusCode == 200{
+                    DispatchQueue.main.async {
+                        self.showAlert(data?.firstName ?? "")
+                        if let name = data?.firstName {
+                            UserDefaults.standard.set(name, forKey: "UserName")
                         }
-                    }
-                    else if response.statusCode == 401{
-                        DispatchQueue.main.async {
-                            self.showError()
-                        }
-                        
+                        self.loginViewModel.name = data?.firstName! ?? ""
+                        UserDefaults.standard.set(true, forKey: "isUserLoggedInUserDefault")
+                        guard let tokenStr = response.allHeaderFields["Authorization"] else {return}
+                        UserDefaults.standard.set(response.allHeaderFields["Authorization"], forKey: "authToken")
+                        UserDefaults.standard.data(forKey: "authToken")
+                        UserDefaults.standard.set(tokenStr, forKey: "authToken")
                     }
                 }
-                catch {
-                    print(error)
+                else if response.statusCode == 401{
+                    DispatchQueue.main.async {
+                        self.showError()
+                    }
+                    
                 }
             }
-            task.resume()
-            
-            
+           
         } else{
             print("invalid")
         }

@@ -7,6 +7,9 @@
 
 import UIKit
 
+public typealias JSON = [String: Any]
+public typealias HTTPHeaders = [String: String]
+
 //Singleton Design Pattern
 
 enum DataError: Error {
@@ -25,49 +28,61 @@ final class APIManager{
     
     
     //GET API function
-    func fetchData <T: Decodable> (pageUrl : String ,dataModel : T.Type,completionHandler : @escaping (_ jsonData: T?, _ error: Error?)->()){
-        if let url = URL(string : pageUrl){
-            let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
-                guard let data = data else{
-                    if error == nil{
-                        print("unknown error")
-                    }
-                    return
+    func fetchData <T: Codable> (pageUrl : String,
+                                 httpHeaders: HTTPHeaders? = nil,
+                                 dataModel : T.Type,
+                                 completionHandler : @escaping (_ jsonData: T?, _ response: URLResponse?, _ error: Error?)->()){
+        guard let url = URL(string: pageUrl) else {return}
+        var request = URLRequest(url: url)
+        
+        
+        request.allHTTPHeaderFields = httpHeaders
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            guard let data = data else{
+                if error == nil{
+                    print("unknown error")
                 }
-                let httpResponse = (response as! HTTPURLResponse)
-                guard (200...299) ~= httpResponse.statusCode else{
-                    print("StatusCode \(httpResponse.statusCode)")
-                    return
-                }
-                do{
-                    let jsonData = try JSONDecoder().decode(T.self, from: data)
-                    completionHandler(jsonData,nil)
-                }
-                catch{
-                    completionHandler(nil,error)
-                }
+                return
             }
-            task.resume()
+            
+            let httpResponse = (response as! HTTPURLResponse)
+            guard (200...299) ~= httpResponse.statusCode else{
+                print("StatusCode \(httpResponse.statusCode)")
+                return
+            }
+            do{
+                let jsonData = try JSONDecoder().decode(T.self, from: data)
+                completionHandler(jsonData, response, nil)
+            }
+            catch{
+                completionHandler(nil,response,error)
+            }
         }
+        task.resume()
     }
     
     
+    
     //POST API Function
-    func postRequest<T: Decodable>(url: String,
-                                   params: [String: Any]? = nil,
-                                   httpHeaders: [String : String]? = nil,
-                                   type: T.Type,
-                                   completionHandler: @escaping (_ jsonData: T?, _ error: Error?)->()) {
+    func postRequest<T: Codable>(url: String,
+                                 body: JSON? = nil,
+                                 httpHeaders: HTTPHeaders? = nil,
+                                 type: T.Type,
+                                 completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) {
         if let url = URL(string: url){
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
-            if let httpHeaders = httpHeaders{
-                request.allHTTPHeaderFields = httpHeaders
+            if let httpHeader = httpHeaders{
+                request.allHTTPHeaderFields = httpHeader
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             }
-            let jsonData = try! JSONSerialization.data(withJSONObject: params, options: [])
+            if let body = body {
+                request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+            }
             
-            let task = URLSession.shared.uploadTask(with: request, from: jsonData) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 guard let data = data else{
                     if error == nil{
                         print("unknown error")
@@ -81,10 +96,11 @@ final class APIManager{
                 }
                 do{
                     let jsonData = try JSONDecoder().decode(T.self, from: data)
-                    completionHandler(jsonData,nil)
+                    print(jsonData)
+                    completionHandler(jsonData,response,error)
                 }
                 catch{
-                    completionHandler(nil,error)
+                    completionHandler(nil,response,error)
                 }
             }
             task.resume()

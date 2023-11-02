@@ -37,7 +37,7 @@ class PDPViewModel{
     
     //MARK: Functions
     func getData(){
-        APIManager.shared.fetchData(pageUrl: url, dataModel: PDPModel.self, completionHandler: {[weak self] data,error in
+        APIManager.shared.fetchData(pageUrl: url, dataModel: PDPModel.self, completionHandler: {[weak self] data,response,error in
             if let data = data {
                 self?.productArr = data
                 DispatchQueue.main.async {

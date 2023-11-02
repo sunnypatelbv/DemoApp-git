@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol WishlistViewModelDelegate: AnyObject{
+    func onSuccess()
+    func onFailure(error: Error?)
+}
+
 class WishlistViewModel{
     
     //MARK: Variables
+    public weak var delegate: WishlistViewModelDelegate?
     var arrayCount = 0
     var wishlistArray : [CustomerProductListItem] = []
     var userLoggedin: Bool {
@@ -17,26 +23,46 @@ class WishlistViewModel{
     }
     var numberOfItemsWishlist = 0
     
+    
+    
     func fetchData(completionHandler: @escaping (Int, [CustomerProductListItem]) -> ()){
-        guard let url = URL(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists") else {return}
-        var request = URLRequest(url: url)
-        guard let token = UserDefaults.standard.object(forKey: "authToken") else {return}
-        //        print(token)
-        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                return
+        let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists"
+        let token = UserDefaults.standard.string(forKey: "authToken")
+        let header = [
+            "Authorization": token!
+        ]
+        APIManager.shared.fetchData(pageUrl: url, httpHeaders: header, dataModel: WishlistModel.self) { (data,response, error) in
+            guard let wishlistData = data else {return}
+            
+            if let counter = (wishlistData.data?[0].customerProductListItems!.count), let wishlist = wishlistData.data?[0].customerProductListItems{
+                self.delegate?.onSuccess()
+                completionHandler(counter,wishlist)
+            } else {
+                self.delegate?.onFailure(error: error)
             }
-            do {
-                let wishlistData = try JSONDecoder().decode(WishlistModel.self, from: data)
-                if let counter = (wishlistData.data?[0].customerProductListItems!.count), let wishlist = wishlistData.data?[0].customerProductListItems{
-                    completionHandler(counter,wishlist)
-                }
-            }
-            catch {
-                print(error.localizedDescription)
-            }        }
-        task.resume()
+        }
+        
+        
+        //                guard let url = URL(string: "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists") else {return}
+        //                var request = URLRequest(url: url)
+        //
+        //                guard let token = UserDefaults.standard.object(forKey: "authToken") else {return}
+        //                //        print(token)
+        //                request.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        //                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        //                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        //                    guard let data = data, error == nil else {
+        //                        return
+        //                    }
+        //                    do {
+        //                        let wishlistData = try JSONDecoder().decode(WishlistModel.self, from: data)
+        //                        if let counter = (wishlistData.data?[0].customerProductListItems!.count), let wishlist = wishlistData.data?[0].customerProductListItems{
+        //                            completionHandler(counter,wishlist)
+        //                        }
+        //                    }
+        //                    catch {
+        //                        print(error.localizedDescription)
+        //                    }        }
+        //                task.resume()
     }
 }

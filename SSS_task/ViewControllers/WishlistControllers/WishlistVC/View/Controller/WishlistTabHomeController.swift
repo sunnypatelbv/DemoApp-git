@@ -49,5 +49,17 @@ class WishlistTabHomeController: UIViewController {
 }
 
 
-
+extension WishlistTabHomeController : WishlistViewModelDelegate {
+    func onSuccess() {
+        self.wishlistViewModel.arrayCount = wishlistViewModel.arrayCount
+        self.wishlistViewModel.wishlistArray = wishlistViewModel.wishlistArray
+        self.collectionView.reloadData()
+    }
+     
+    func onFailure(error: Error?) {
+        print(error?.localizedDescription)
+    }
+    
+    
+}
 
