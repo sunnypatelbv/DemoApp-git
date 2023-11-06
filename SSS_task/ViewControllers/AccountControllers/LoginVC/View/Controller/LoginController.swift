@@ -69,8 +69,16 @@ class LoginController: UIViewController {
             let loginData = loginString.data(using: String.Encoding.utf8)!
             let base64LoginString = loginData.base64EncodedString()
             
-            let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/auth?locale=en-AE&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77"
-            
+            var components = URLComponents()
+            components.scheme = "https"
+            components.host = "ov-dev.sssports.com"
+            components.path = "/s/UAE/dw/shop/v20_10/customers/auth"
+            components.queryItems = [
+                URLQueryItem(name: "locale", value: "en-AE"),
+                URLQueryItem(name: "client_id", value: "ce6abb4e-faf1-41af-94e7-feb1e2dd4a77")
+            ]
+            guard let url = components.url else {return}
+            print(url)
             let parameters = [
                 "type": "credentials"
             ] as? [String : Any]
@@ -79,7 +87,8 @@ class LoginController: UIViewController {
                 "Authorization" : "Basic \(base64LoginString)"
             ]
             
-            APIManager.shared.postRequest(url: url, body: parameters, httpHeaders: header, type: LoginResponseData.self) { (data, response, error) in
+            APIManager.shared.postRequest(url: url.absoluteString, body: parameters, httpHeaders: header, type: LoginResponseData.self) { (data, response, error) in
+                print(url)
                 let response = (response as! HTTPURLResponse)
                 if response.statusCode == 200{
                     DispatchQueue.main.async {
