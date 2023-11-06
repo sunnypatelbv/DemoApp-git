@@ -26,12 +26,16 @@ class WishlistViewModel{
     
     
     func fetchData(completionHandler: @escaping (Int, [CustomerProductListItem]) -> ()){
-        let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists"
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "ov-dev.sssports.com"
+        components.path = "/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists"
+        guard let url = components.url else {return}
         let token = UserDefaults.standard.string(forKey: "authToken")
         let header = [
             "Authorization": token!
         ]
-        APIManager.shared.fetchData(pageUrl: url, httpHeaders: header, dataModel: WishlistModel.self) { (data,response, error) in
+        APIManager.shared.fetchData(pageUrl: url.absoluteString, httpHeaders: header, dataModel: WishlistModel.self) { (data,response, error) in
             guard let wishlistData = data else {return}
             
             if let counter = (wishlistData.data?[0].customerProductListItems!.count), let wishlist = wishlistData.data?[0].customerProductListItems{
@@ -41,6 +45,5 @@ class WishlistViewModel{
                 self.delegate?.onFailure(error: error)
             }
         }
-
     }
 }
