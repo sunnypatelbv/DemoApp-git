@@ -15,10 +15,10 @@ class SettingsViewController: UIViewController {
     //MARK: Variables
     var settingsArr = [
         "KSA: SAR",
-    "العربية",
+        "العربية",
         "Category Preference"
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "SettingsOptionCell", bundle: nil), forCellReuseIdentifier: "SettingsOptionCell")
@@ -27,8 +27,8 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
+    
+    
 }
 
 //MARK: Tableview Delegates and DataSource

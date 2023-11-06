@@ -11,7 +11,7 @@ class BagHomePageController: UIViewController {
     
     //MARK: IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class BagHomePageController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -78,4 +78,4 @@ extension BagHomePageController: UICollectionViewDelegate, UICollectionViewDataS
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height/12)
     }
 }
-  
+
