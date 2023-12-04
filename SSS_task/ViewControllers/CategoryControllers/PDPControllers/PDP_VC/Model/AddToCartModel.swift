@@ -333,17 +333,17 @@ struct CPrice: Codable {
 struct Shipment: Codable {
     let type: String?
     let adjustedMerchandizeTotalTax: Double?
-    let adjustedShippingTotalTax: JSONNull?
+    let adjustedShippingTotalTax: Double?
     let gift: Bool?
     let merchandizeTotalTax: Double?
     let productSubTotal, productTotal: Int?
     let shipmentID: String?
-    let shipmentTotal: JSONNull?
+    let shipmentTotal: Double?
     let shippingAddress: IngAddress?
     let shippingMethod: ShippingMethod?
     let shippingStatus: String?
     let shippingTotal, shippingTotalTax: JSONNull?
-    let taxTotal: JSONNull?
+    let taxTotal: Double?
 
     enum CodingKeys: String, CodingKey {
         case type = "_type"
@@ -409,12 +409,12 @@ struct ShippingPromotion: Codable {
 // MARK: - ShippingItem
 struct ShippingItem: Codable {
     let type: String?
-    let adjustedTax, basePrice: JSONNull?
+    let adjustedTax, basePrice: Double?
     let itemID, itemText: String?
-    let price, priceAfterItemDiscount: JSONNull?
+    let price, priceAfterItemDiscount: Double?
     let shipmentID: String?
-    let tax, taxBasis: JSONNull?
-    let taxClassID: JSONNull?
+    let tax, taxBasis: Double?
+    let taxClassID: String?
     let taxRate: Double?
     let cBasketTotalPrice: Int?
     let cCurrencyCode: String?
