@@ -14,7 +14,7 @@ class CategoryHomeViewController: UIViewController {
     
     //MARK: Variables
     var plpViewModel = PLPViewModel()
-    
+    var productID = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self

@@ -1,4 +1,3 @@
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
@@ -14,38 +13,43 @@ struct PDPModel: Codable {
     let inventory: Inventory?
     let master: Master?
     let minOrderQuantity: Int?
-    let name: CProductURLName?
+    let name: String?
     let price, pricePerUnit: Int?
     let primaryCategoryID, shortDescription: String?
     let stepQuantity: Int?
     let pdpModelType: TypeClass?
     let unitQuantity: Int?
-    let validFrom: ValidFrom?
     let variants: [Variant]?
     let variationAttributes: [PDPModelVariationAttribute]?
     let variationGroups: [VariationGroup]?
     let variationValues: VariationValues?
-    let cL2Cat, cL4Cat, cL5Cat, cAh1Text: String?
-    let cAh2Text: String?
+    let cL0Cat, cL1Cat, cL2Cat, cL3Cat: String?
+    let cL4Cat: String?
+    let cL6CatMulti: [String]?
+    let cAh1Text, cAh2Text: String?
     let cAvailableForInStorePickup: Bool?
     let cBrandOrder: Int?
     let cBrandTranslated, cCoreSizeValue: String?
-    let cCostPriceAED: Double?
-    let cGender, cGenericArticleNo, cGmgColor, cGmgSleeveLength: String?
-    let cIsBigBox, cIsCCAvailable, cIsEASale, cIsNew: Bool?
-    let cIsReturnable: Bool?
-    let cProductGroup, cProductPhotos: String?
-    let cProductURLName: CProductURLName?
+    let cDisableAutomatedBadges: Bool?
+    let cGender, cGenericArticleNo, cGmgColor: String?
+    let cGmgCancellable: Bool?
+    let cGmgColorRank, cGmgFastening, cGmgFootwearHeight: String?
+    let cGmgIsReturnable: Bool?
+    let cGmgSport: String?
+    let cIsBigBox, cIsCCAvailable, cIsNew, cIsReturnable: Bool?
+    let cNikeBrands, cNikeSport, cNkGender, cProductGroup: String?
+    let cProductPhotos: String?
+    let cProductURLName: String?
     let cSapSport, cSeason: String?
     let cSeasonSortable: Int?
     let cSeasonYear: String?
     let cSeasonYearSortable: Int?
-    let cSecondaryColor, cSport, cSubGroup: String?
-    let cTotalDiscountPercentageEA: Int?
+    let cSecondaryColor, cSport, cSubGroup, cVariantColor: String?
     let cVendorArticleNumber, cVendorColor: String?
     let cBadges: CBadges?
     let cMaxBuyableQuantity: Int?
     let cSizeChartID: CSizeChartID?
+    let cPromotions: [CPromotion]?
     let cIsQuickBuyAvailable: Bool?
     let cSalePrice, cListPrice: Int?
     let cPercentage: String?
@@ -55,7 +59,8 @@ struct PDPModel: Codable {
     let cBestPrice: CBestPrice?
     let cTermsAndConditionsText, cSportDash, cBrandDash: String?
     let cExpress: CExpress?
-    
+    let cGa4Data: CGa4Data?
+
     enum CodingKeys: String, CodingKey {
         case v = "_v"
         case type = "_type"
@@ -70,30 +75,39 @@ struct PDPModel: Codable {
         case stepQuantity = "step_quantity"
         case pdpModelType = "type"
         case unitQuantity = "unit_quantity"
-        case validFrom = "valid_from"
         case variants
         case variationAttributes = "variation_attributes"
         case variationGroups = "variation_groups"
         case variationValues = "variation_values"
+        case cL0Cat = "c_L0_cat"
+        case cL1Cat = "c_L1_cat"
         case cL2Cat = "c_L2_cat"
+        case cL3Cat = "c_L3_cat"
         case cL4Cat = "c_L4_cat"
-        case cL5Cat = "c_L5_cat"
+        case cL6CatMulti = "c_L6_cat_multi"
         case cAh1Text = "c_ah1text"
         case cAh2Text = "c_ah2text"
         case cAvailableForInStorePickup = "c_availableForInStorePickup"
         case cBrandOrder = "c_brandOrder"
         case cBrandTranslated = "c_brandTranslated"
         case cCoreSizeValue = "c_coreSizeValue"
-        case cCostPriceAED = "c_costPriceAED"
+        case cDisableAutomatedBadges = "c_disableAutomatedBadges"
         case cGender = "c_gender"
         case cGenericArticleNo = "c_genericArticleNo"
         case cGmgColor = "c_gmgColor"
-        case cGmgSleeveLength = "c_gmg_sleeve_length"
+        case cGmgCancellable = "c_gmg_cancellable"
+        case cGmgColorRank = "c_gmg_colorRank"
+        case cGmgFastening = "c_gmg_fastening"
+        case cGmgFootwearHeight = "c_gmg_footwear_height"
+        case cGmgIsReturnable = "c_gmg_isReturnable"
+        case cGmgSport = "c_gmg_sport"
         case cIsBigBox = "c_isBigBox"
         case cIsCCAvailable = "c_isCCAvailable"
-        case cIsEASale = "c_isEASale"
         case cIsNew = "c_isNew"
         case cIsReturnable = "c_isReturnable"
+        case cNikeBrands = "c_nikeBrands"
+        case cNikeSport = "c_nikeSport"
+        case cNkGender = "c_nk_gender"
         case cProductGroup = "c_productGroup"
         case cProductPhotos = "c_productPhotos"
         case cProductURLName = "c_productUrlName"
@@ -105,12 +119,13 @@ struct PDPModel: Codable {
         case cSecondaryColor = "c_secondaryColor"
         case cSport = "c_sport"
         case cSubGroup = "c_subGroup"
-        case cTotalDiscountPercentageEA = "c_totalDiscountPercentageEA"
+        case cVariantColor = "c_variantColor"
         case cVendorArticleNumber = "c_vendorArticleNumber"
         case cVendorColor = "c_vendorColor"
         case cBadges = "c_badges"
         case cMaxBuyableQuantity = "c_maxBuyableQuantity"
         case cSizeChartID = "c_sizeChartID"
+        case cPromotions = "c_promotions"
         case cIsQuickBuyAvailable = "c_isQuickBuyAvailable"
         case cSalePrice = "c_salePrice"
         case cListPrice = "c_listPrice"
@@ -126,8 +141,14 @@ struct PDPModel: Codable {
         case cSportDash = "c_sportDash"
         case cBrandDash = "c_brandDash"
         case cExpress = "c_express"
+        case cGa4Data = "c_ga4data"
     }
 }
+
+//// MARK: - CBadges
+//struct CBadges: Codable {
+//    let automated: [String]?
+//}
 
 // MARK: - CBestPrice
 struct CBestPrice: Codable {
@@ -136,14 +157,13 @@ struct CBestPrice: Codable {
     let promos: [String]?
 }
 
-// MARK: - ExpObj
-struct ExpObj: Codable {
-    let labelMessage, valueMessage, hoursDisplay, minutesDisplay: String?
-    let isExpressAvailableForArea: Bool?
-    let arrivingDate, standardEstimatedTime: String?
-    let isExpressAvailableForProduct: Bool?
-    let contentMessage: String?
-}
+//// MARK: - CExpress
+//struct CExpress: Codable {
+//    let enabled: Bool?
+//    let quantityForEligible: JSONNull?
+//    let expObj: ExpObj?
+//    let location: Location?
+//}
 
 // MARK: - Location
 struct Location: Codable {
@@ -156,8 +176,21 @@ struct ChoosenShippingAddress: Codable {
     let countryCode, city, area: String?
 }
 
-enum CProductURLName: String, Codable {
-    case menSSportstyleTerryFullZipHoodie = "Men's Sportstyle Terry Full Zip Hoodie"
+//enum CProductURLName: String, Codable {
+//    case menSKyrie6BasketballShoe = "Men's Kyrie 6 Basketball Shoe"
+//}
+
+// MARK: - CPromotion
+struct CPromotion: Codable {
+    let id: String?
+    let name: String?
+    let terms, discountPercentage, promoCode: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, terms
+        case discountPercentage = "discount_percentage"
+        case promoCode = "promo_code"
+    }
 }
 
 // MARK: - CSizeChartID
@@ -167,11 +200,11 @@ struct CSizeChartID: Codable {
 
 // MARK: - ImageGroup
 struct ImageGroup: Codable {
-    let type: String?
+    let type: ImageGroupType?
     let images: [Image]?
     let variationAttributes: [ImageGroupVariationAttribute]?
-    let viewType: String?
-    
+    let viewType: ViewType?
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case images
@@ -180,31 +213,67 @@ struct ImageGroup: Codable {
     }
 }
 
+//// MARK: - Image
+//struct Image: Codable {
+//    let type: ImageType?
+//    let alt: CProductURLName?
+//    let disBaseLink, link: String?
+//    let title: CProductURLName?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case type = "_type"
+//        case alt
+//        case disBaseLink = "dis_base_link"
+//        case link, title
+//    }
+//}
 
-enum TypeEnum: String, Codable {
+enum ImageType: String, Codable {
     case image = "image"
-    case product = "product"
+}
+
+enum ImageGroupType: String, Codable {
+    case imageGroup = "image_group"
 }
 
 // MARK: - ImageGroupVariationAttribute
 struct ImageGroupVariationAttribute: Codable {
-    let type, id: String?
+    let type: VariationAttributeType?
+    let id: ID?
     let values: [PurpleValue]?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case id, values
     }
 }
 
+enum ID: String, Codable {
+    case variantColor = "variantColor"
+}
+
+enum VariationAttributeType: String, Codable {
+    case variationAttribute = "variation_attribute"
+}
+
 // MARK: - PurpleValue
 struct PurpleValue: Codable {
-    let type, value: String?
-    
+    let type: ValueType?
+    let value: String?
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case value
     }
+}
+
+
+
+enum ViewType: String, Codable {
+    case hiRes = "hi-res"
+    case hiResNk = "hi-res-nk"
+    case swatch = "swatch"
+    case swatchNk = "swatch-nk"
 }
 
 // MARK: - Inventory
@@ -215,7 +284,7 @@ struct Inventory: Codable {
     let id: String?
     let orderable, preorderable: Bool?
     let stockLevel: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case ats, backorderable, id, orderable, preorderable
@@ -226,7 +295,7 @@ struct Inventory: Codable {
 // MARK: - Master
 struct Master: Codable {
     let type, masterID: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case masterID = "master_id"
@@ -237,28 +306,19 @@ struct Master: Codable {
 struct TypeClass: Codable {
     let type: String?
     let variationGroup: Bool?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case variationGroup = "variation_group"
     }
 }
 
-// MARK: - ValidFrom
-struct ValidFrom: Codable {
-    let validFromDefault: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case validFromDefault = "default"
-    }
-}
-
 // MARK: - Variant
 struct Variant: Codable {
-    let type: String?
+    let type: VariantType?
     let orderable: Bool?
     let productID: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case orderable
@@ -266,11 +326,16 @@ struct Variant: Codable {
     }
 }
 
+enum VariantType: String, Codable {
+    case variant = "variant"
+}
+
 // MARK: - PDPModelVariationAttribute
 struct PDPModelVariationAttribute: Codable {
-    let type, id, name: String?
+    let type: VariationAttributeType?
+    let id, name: String?
     let values: [FluffyValue]?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case id, name, values
@@ -279,10 +344,11 @@ struct PDPModelVariationAttribute: Codable {
 
 // MARK: - FluffyValue
 struct FluffyValue: Codable {
-    let type, name: String?
+    let type: ValueType?
+    let name: String?
     let orderable: Bool?
     let value: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case name, orderable, value
@@ -296,7 +362,7 @@ struct VariationGroup: Codable {
     let orderable: Bool?
     let productID: String?
     let variationValues: VariationValues?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case link, orderable
@@ -313,24 +379,24 @@ struct VariationValues: Codable {
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
-    
+
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true
     }
-    
+
     public var hashValue: Int {
         return 0
     }
-    
+
     public init() {}
-    
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
             throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()

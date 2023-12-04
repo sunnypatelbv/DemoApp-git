@@ -26,19 +26,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="180" height="159.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Under Armour" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITg-Dz-T8Z">
-                        <rect key="frame" x="0.0" y="164.5" width="180" height="18"/>
+                        <rect key="frame" x="0.0" y="164.5" width="180" height="21"/>
                         <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Women's HOVR Infinite 2 Shoe" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sM-cd-zoa">
-                        <rect key="frame" x="0.0" y="185.5" width="180" height="38.5"/>
+                        <rect key="frame" x="0.0" y="188.5" width="180" height="38.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 Colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUF-9R-wmu">
-                        <rect key="frame" x="0.0" y="229" width="180" height="14.5"/>
+                        <rect key="frame" x="0.0" y="232" width="180" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bcp-fg-Nb0">
-                        <rect key="frame" x="0.0" y="248.5" width="180" height="20.5"/>
+                        <rect key="frame" x="0.0" y="251.5" width="180" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 620.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glb-rq-R9G">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>

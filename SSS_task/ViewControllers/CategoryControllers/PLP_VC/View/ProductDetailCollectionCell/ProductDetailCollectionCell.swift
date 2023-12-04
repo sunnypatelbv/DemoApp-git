@@ -26,7 +26,8 @@ class ProductDetailCollectionCell: UICollectionViewCell {
     var isWishlistTapped = false
     var prouctId = ""
     var closure : ((Bool) -> ())?
-    
+    let tempToken = "eyJfdiI6IjEiLCJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfdiI6IjEiLCJleHAiOjE3MDEwODU2OTcsImlhdCI6MTcwMTA4Mzg5NywiaXNzIjoiY2U2YWJiNGUtZmFmMS00MWFmLTk0ZTctZmViMWUyZGQ0YTc3Iiwic3ViIjoie1wiX3ZcIjpcIjFcIixcImN1c3RvbWVyX2luZm9cIjp7XCJjdXN0b21lcl9pZFwiOlwiYmNicGNZMUhnRzlveUlUbnVwT2phRmhhOHdcIixcImd1ZXN0XCI6ZmFsc2UsXCJ2aXNpdF9pZFwiOlwiY2QzZjY0NGU3NWQxNTdlOGMyYjAwMjM5ZjZcIn19In0.dl8XgldAVo8SGRDrrSAdnbD_tnRnfYwIrohjhsPW78JgTif2kukQqnB74RgKHRx6U5CTBee8ktTVwqnmtguRT3VoIxsrNgGYgTMYaXJ6ERme4As34xBkJHDzg-RFOC64t3N_gHPoytMf5b6CK6eCb1RbxROhB6yTIZ22eBUoXGpz5b-AJUuc5fbqgEHc_K4_FpnzIMkQoCpbf5Ilgq_88bUatUbMXmwckmazQD3iDK96Y2NpG_mOX_gOmYm_m7hJzKuY4zU90SGc-GYkbBKfRPK3GthTr0LNXVsknydirpsZDI1hlBjrCxNz689-ogulGmOL-nbuRes2DI281xNeQ6AfTFv1QZ0Ht928yXXGJohgZ6EUm-53XfvdGs-mvg093AKxCA1ThkkSq_6OsXroLf7dIstCSj8bbe-POGM6bXMqimc2ZSPOBiCNTgRY3tsdId1gHApd9GsoPTqiZhXnZzcSzIzFFknCW23BWEBhiQKcqBzlUO4jqvL_073fqjltyTrQctxNPDhkIfZVgEoULcap1ljcM0GhtgU9TKSY-4SAJDDSq3NF_VeI3Jv4pCla"
+
     //MARK: IBActions
     @IBAction func addToWishlistTapped(){
         
@@ -76,14 +77,30 @@ class ProductDetailCollectionCell: UICollectionViewCell {
             "public": true,
             "priority": 0
         ] as [String : Any]
-        let token = UserDefaults.standard.string(forKey: "authToken")
-        let header = [
-            "Authorization": token!
-        ]
+        print(params)
+        guard let token = UserDefaults.standard.string(forKey: "authToken") else {return}
+        guard let basic = UserDefaults.standard.string(forKey: "basicKey") else {return}
         print(token)
+        let header = [
+            "Authorization": token
+        ]
+        
         APIManager.shared.postRequest(url: url, body: params, httpHeaders: header, type: AddWishlistModel.self) { (data, response, error) in
             if let data = data, error == nil {
-                print("success")
+
+                if let response = response as? HTTPURLResponse{
+                    if response.statusCode == 200 {
+                        print("Success")
+                    }
+                    else if response.statusCode == 401{
+                        if data.fault?.type == "InvalidAuthorizationHeaderException" || data.fault?.type == "ExpiredTokenException"{
+                            print("token expried")
+                            self.refreshTokenCalled()
+                            print(UserDefaults.standard.string(forKey: "authToken"))
+                            return
+                        }
+                    }
+                }
             }
         }
         
@@ -142,4 +159,70 @@ class ProductDetailCollectionCell: UICollectionViewCell {
         
     }
     
+    func refreshTokenCalled(){
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "ov-dev.sssports.com"
+        components.path = "/s/UAE/dw/shop/v20_10/customers/auth"
+        components.queryItems = [
+            URLQueryItem(name: "locale", value: "en-AE"),
+            URLQueryItem(name: "client_id", value: "ce6abb4e-faf1-41af-94e7-feb1e2dd4a77")
+        ]
+        guard let url = components.url else {return}
+        let parameters = [
+            "type": "credentials"
+        ] as? [String : Any]
+        guard let basic = UserDefaults.standard.string(forKey: "basicKey") else {return}
+        let header = [
+            "Authorization" : "Basic \(basic)"
+        ]
+        
+        APIManager.shared.postRequest(url: url.absoluteString, body: parameters, httpHeaders: header, type: LoginResponseData.self) { (data, response, error) in
+            print(url)
+            let response = (response as! HTTPURLResponse)
+            if response.statusCode == 200{
+                DispatchQueue.main.async {
+                    guard let tokenStr = response.allHeaderFields["Authorization"] else {return}
+//                    UserDefaults.standard.set(response.allHeaderFields["Authorization"], forKey: "authToken")
+//                    UserDefaults.standard.data(forKey: "authToken")
+                    UserDefaults.standard.set(tokenStr, forKey: "authToken")
+                }
+            }
+        }
+        
+    }
+    
 }
+
+//extension ProductDetailCollectionCell{
+//    func decode(jwtToken jwt: String) throws -> [String: Any] {
+//
+//        enum DecodeErrors: Error {
+//            case badToken
+//            case other
+//        }
+//
+//        func base64Decode(_ base64: String) throws -> Data {
+//            let base64 = base64
+//                .replacingOccurrences(of: "-", with: "+")
+//                .replacingOccurrences(of: "_", with: "/")
+//            let padded = base64.padding(toLength: ((base64.count + 3) / 4) * 4, withPad: "=", startingAt: 0)
+//            guard let decoded = Data(base64Encoded: padded) else {
+//                throw DecodeErrors.badToken
+//            }
+//            return decoded
+//        }
+//
+//        func decodeJWTPart(_ value: String) throws -> [String: Any] {
+//            let bodyData = try base64Decode(value)
+//            let json = try JSONSerialization.jsonObject(with: bodyData, options: [])
+//            guard let payload = json as? [String: Any] else {
+//                throw DecodeErrors.other
+//            }
+//            return payload
+//        }
+//
+//        let segments = jwt.components(separatedBy: ".")
+//        return try decodeJWTPart(segments[1])
+//    }
+//}

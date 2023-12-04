@@ -21,6 +21,7 @@ extension CategoryHomeViewController: UICollectionViewDelegate, UICollectionView
             if value == true {
                 guard let id = self!.plpViewModel.productArr[indexPath.row].productID else {return}
                 cell.prouctId = id
+//                self?.productID = id
             }
         }
         return cell
@@ -29,6 +30,15 @@ extension CategoryHomeViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("product description api calling")
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PDPViewController") as? PDPViewController else {return}
+//        print(self.plpViewModel.productArr[indexPath.row])
+        if let id =  self.plpViewModel.productArr[indexPath.row].productID{
+            vc.pID = id
+            vc.pdpViewModel.pID = id
+        }
+        if let pid = self.plpViewModel.productArr[indexPath.row].representedProduct?.id{
+            vc.refPID = pid
+            print(pid)
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

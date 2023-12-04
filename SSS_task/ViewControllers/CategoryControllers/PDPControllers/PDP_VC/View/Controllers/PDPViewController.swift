@@ -14,6 +14,8 @@ class PDPViewController: UIViewController {
     
     //MARK: Variables
     var pdpViewModel = PDPViewModel()
+    var pID = ""
+    var refPID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +29,43 @@ class PDPViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         pdpViewModel.delegate = self
-        pdpViewModel.getData()
+        pdpViewModel.getData(id: pID)
+        print(pID)
         // Do any additional setup after loading the view.
+    }
+    
+//    https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/baskets/30e268d2d37fdc2e160c88efc0/items
+    //MARK: IBOutlets
+    @IBAction func addToCartBtnTapped(_ sender: UIButton){
+        print("** 🟢🟢🟢 Adding product to cart 🟢🟢🟢 **")
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "ov-dev.sssports.com"
+        components.path = "/s/UAE/dw/shop/v20_10/baskets/30e268d2d37fdc2e160c88efc0/items"
+    guard let url = components.url else {return}
+    print(url)
+        let params = [[
+            "product_id": "194272271937",
+            "quantity": 1
+        ]] as [[String : Any]]
+        print(params)
+        print(refPID)
+        guard let token = UserDefaults.standard.string(forKey: "authToken") else {return}
+        let header = [
+            "Authorization": token
+        ]
+        print(token)
+        print(header)
+        APIManager.shared.postRequest(url: "\(url)", bodyDict: params, httpHeaders: header, type: AddToCartModel.self) { (data, response, error) in
+            print(url)
+            guard let data = data, error == nil else {return}
+            if let response = response as? HTTPURLResponse{
+                if response.statusCode == 200 {
+                    
+                    print("🟢🟢🟢Item added to cart🟢🟢🟢")
+                }
+            }
+        }
     }
 }
 

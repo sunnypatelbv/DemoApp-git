@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Italian Plate No2 Expanded Medium.ttf">
+            <string>ItalianPlateNo2Expanded-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FreeDeliveryCell" rowHeight="86" id="KGk-i7-Jjw" customClass="FreeDeliveryCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="472" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="472" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5F-nQ-QUS">
+                        <rect key="frame" x="16" y="8" width="440" height="74"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations, you've got free delivery!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqT-4s-hVR">
+                                <rect key="frame" x="16" y="29" width="285.5" height="16"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Medium" family="Italian Plate No2 Expanded" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKp-tq-NE6">
+                                <rect key="frame" x="397" y="19.5" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="hnr-zC-U9I"/>
+                                    <constraint firstAttribute="width" secondItem="TKp-tq-NE6" secondAttribute="height" multiplier="1:1" id="qCw-QW-8tF"/>
+                                </constraints>
+                                <state key="normal" image="xmark" catalog="system"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85011500630000003" green="0.85011500630000003" blue="0.85011500630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VqT-4s-hVR" firstAttribute="centerY" secondItem="p5F-nQ-QUS" secondAttribute="centerY" id="NjA-gv-erB"/>
+                            <constraint firstItem="VqT-4s-hVR" firstAttribute="leading" secondItem="p5F-nQ-QUS" secondAttribute="leading" constant="16" id="dyh-dF-4pv"/>
+                            <constraint firstItem="TKp-tq-NE6" firstAttribute="centerY" secondItem="p5F-nQ-QUS" secondAttribute="centerY" id="hSl-BQ-8Di"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="hxD-UQ-gYU"/>
+                            <constraint firstAttribute="trailing" secondItem="TKp-tq-NE6" secondAttribute="trailing" constant="8" id="yjz-Ei-0en"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="p5F-nQ-QUS" secondAttribute="trailing" constant="16" id="UtN-fX-cDL"/>
+                    <constraint firstItem="p5F-nQ-QUS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WIY-2G-4WS"/>
+                    <constraint firstAttribute="bottom" secondItem="p5F-nQ-QUS" secondAttribute="bottom" constant="4" id="hcD-pu-Ch4"/>
+                    <constraint firstItem="p5F-nQ-QUS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ryy-X9-11U"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="managerView" destination="p5F-nQ-QUS" id="Tyd-07-vuR"/>
+            </connections>
+            <point key="canvasLocation" x="155.07246376811597" y="95.089285714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

@@ -16,7 +16,8 @@ struct AddWishlistModel: Codable {
     let addWishlistModelPublic: Bool?
     let purchasedQuantity, quantity: Int?
     let addWishlistModelType: String?
-
+    let fault: Fault?
+    
     enum CodingKeys: String, CodingKey {
         case v = "_v"
         case type = "_type"
@@ -29,7 +30,13 @@ struct AddWishlistModel: Codable {
         case purchasedQuantity = "purchased_quantity"
         case quantity
         case addWishlistModelType = "type"
+        case fault
     }
+}
+
+// MARK: - Fault
+struct Fault: Codable {
+    let type, message: String?
 }
 
 // MARK: - Flash

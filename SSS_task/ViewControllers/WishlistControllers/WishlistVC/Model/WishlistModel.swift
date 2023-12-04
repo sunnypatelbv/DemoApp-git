@@ -21,26 +21,25 @@ struct WishlistModel: Codable {
 
 // MARK: - Datum
 struct Datum: Codable {
-    let type, creationDate: String?
-    let customerProductListItems: [CustomerProductListItem]?
-    let description: String?
+    let type, creationDate, description: String?
     let event: Event?
     let id: String?
     let itemsLink: SLink?
     let lastModified, name: String?
     let datumPublic: Bool?
     let datumType: String?
+    let customerProductListItems: [CustomerProductListItem]?
 
     enum CodingKeys: String, CodingKey {
         case type = "_type"
         case creationDate = "creation_date"
-        case customerProductListItems = "customer_product_list_items"
         case description, event, id
         case itemsLink = "items_link"
         case lastModified = "last_modified"
         case name
         case datumPublic = "public"
         case datumType = "type"
+        case customerProductListItems = "customer_product_list_items"
     }
 }
 
@@ -67,7 +66,9 @@ struct CustomerProductListItem: Codable {
     }
 }
 
-
+enum TypeEnum: String, Codable {
+    case product = "product"
+}
 
 // MARK: - SLink
 struct SLink: Codable {

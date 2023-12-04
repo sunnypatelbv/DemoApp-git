@@ -31,14 +31,14 @@ class WishlistViewModel{
         components.host = "ov-dev.sssports.com"
         components.path = "/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists"
         guard let url = components.url else {return}
-        let token = UserDefaults.standard.string(forKey: "authToken")
+        guard let token = UserDefaults.standard.string(forKey: "authToken") else {return}
         let header = [
-            "Authorization": token!
+            "Authorization": token
         ]
         APIManager.shared.fetchData(pageUrl: url.absoluteString, httpHeaders: header, dataModel: WishlistModel.self) { (data,response, error) in
             guard let wishlistData = data else {return}
-            
-            if let counter = (wishlistData.data?[0].customerProductListItems!.count), let wishlist = wishlistData.data?[0].customerProductListItems{
+            print(wishlistData.data?[5].customerProductListItems?.count)
+            if let counter = (wishlistData.data?[5].customerProductListItems?.count), let wishlist = wishlistData.data?[5].customerProductListItems{
                 self.delegate?.onSuccess()
                 completionHandler(counter,wishlist)
             } else {
