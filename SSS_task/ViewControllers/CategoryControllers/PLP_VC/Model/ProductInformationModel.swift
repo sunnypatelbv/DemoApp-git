@@ -16,6 +16,7 @@ struct ProductInformationModel: Codable {
     let selectedRefinements: SelectedRefinements?
     let sortingOptions: [SortingOption]?
     let start, total: Int?
+    
 
     enum CodingKeys: String, CodingKey {
         case v = "_v"
@@ -25,8 +26,10 @@ struct ProductInformationModel: Codable {
         case selectedRefinements = "selected_refinements"
         case sortingOptions = "sorting_options"
         case start, total
+        
     }
 }
+
 
 // MARK: - Hit
 struct Hit: Codable {
@@ -151,11 +154,6 @@ struct CCountDownTimer: Codable {
     let bannerText: String?
     let showCountdownTimerDaysOnPDP, showCountdownTimerDaysOnPLP: Bool?
     let endDate, endDateSiteBasedTimeStamp, siteTimeStamp: String?
-}
-
-// MARK: - CExpress
-struct CExpress: Codable {
-    let enabled: Bool?
 }
 
 enum CGender: String, Codable {
@@ -305,6 +303,7 @@ struct RefinementValue: Codable {
 
 enum ValueType: String, Codable {
     case productSearchRefinementValue = "product_search_refinement_value"
+    case variationAttributeValue = "variation_attribute_value"
 }
 
 // MARK: - ValueValue
@@ -350,3 +349,4 @@ struct SortingOption: Codable {
         case id, label
     }
 }
+

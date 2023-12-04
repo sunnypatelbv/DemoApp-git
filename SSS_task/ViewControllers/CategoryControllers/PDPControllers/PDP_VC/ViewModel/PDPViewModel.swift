@@ -33,10 +33,13 @@ class PDPViewModel{
     var productArr : PDPModel?
     var dataSource = ExpandableCellDataModel.mockedData
     var currentProduct = 0
-    let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/products/UA1345776-112?select=(*,%20image_groups.(**),%20variation_attributes.(**),%20variation_groups.(**),%20inventory.(**),%20variants.(orderable,%20product_id),%20type.(**),%20variation_values.(**),%20master.(master_id))&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&expand=availability,%20variations,%20images,%20prices,%20promotions&locale=en-AE&all_images=true&action=bestprice"
+    var pID = ""
+//    let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/products/NKBQ4630-004?select=(*,%20image_groups.(**),%20variation_attributes.(**),%20variation_groups.(**),%20inventory.(**),%20variants.(orderable,%20product_id),%20type.(**),%20variation_values.(**),%20master.(master_id))&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&expand=availability,%20variations,%20images,%20prices,%20promotions&locale=en-AE&all_images=true&action=bestprice"
     
     //MARK: Functions
-    func getData(){
+    func getData(id : String){
+        let url = "https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/products/\(id)?select=(*,%20image_groups.(**),%20variation_attributes.(**),%20variation_groups.(**),%20inventory.(**),%20variants.(orderable,%20product_id),%20type.(**),%20variation_values.(**),%20master.(master_id))&client_id=ce6abb4e-faf1-41af-94e7-feb1e2dd4a77&expand=availability,%20variations,%20images,%20prices,%20promotions&locale=en-AE&all_images=true&action=bestprice"
+        print(url)
         APIManager.shared.fetchData(pageUrl: url, dataModel: PDPModel.self, completionHandler: {[weak self] data,response,error in
             if let data = data {
                 self?.productArr = data

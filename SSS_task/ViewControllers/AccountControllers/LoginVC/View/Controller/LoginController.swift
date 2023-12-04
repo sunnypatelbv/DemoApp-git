@@ -68,7 +68,7 @@ class LoginController: UIViewController {
             let loginString = String(format: "%@:%@", email, password)
             let loginData = loginString.data(using: String.Encoding.utf8)!
             let base64LoginString = loginData.base64EncodedString()
-            
+            UserDefaults.standard.set(base64LoginString, forKey: "basicKey")
             var components = URLComponents()
             components.scheme = "https"
             components.host = "ov-dev.sssports.com"
@@ -78,13 +78,12 @@ class LoginController: UIViewController {
                 URLQueryItem(name: "client_id", value: "ce6abb4e-faf1-41af-94e7-feb1e2dd4a77")
             ]
             guard let url = components.url else {return}
-            print(url)
             let parameters = [
                 "type": "credentials"
             ] as? [String : Any]
-            
+            guard let basic = UserDefaults.standard.string(forKey: "basicKey") else {return}
             let header = [
-                "Authorization" : "Basic \(base64LoginString)"
+                "Authorization" : "Basic \(basic)"
             ]
             
             APIManager.shared.postRequest(url: url.absoluteString, body: parameters, httpHeaders: header, type: LoginResponseData.self) { (data, response, error) in
@@ -92,6 +91,7 @@ class LoginController: UIViewController {
                 let response = (response as! HTTPURLResponse)
                 if response.statusCode == 200{
                     DispatchQueue.main.async {
+                        
                         self.showAlert(data?.firstName ?? "")
                         if let name = data?.firstName {
                             UserDefaults.standard.set(name, forKey: "UserName")
@@ -101,19 +101,48 @@ class LoginController: UIViewController {
                         guard let tokenStr = response.allHeaderFields["Authorization"] else {return}
                         UserDefaults.standard.set(response.allHeaderFields["Authorization"], forKey: "authToken")
                         UserDefaults.standard.data(forKey: "authToken")
+//                        UserDefaults.standard.set("30e268d2d37fdc2e160c88efc0", forKey: "basketID")
                         UserDefaults.standard.set(tokenStr, forKey: "authToken")
+                        self.getBasketData()
                     }
                 }
                 else if response.statusCode == 401{
                     DispatchQueue.main.async {
                         self.showError()
                     }
-                    
+
                 }
             }
-           
+
         } else{
             print("invalid")
+        }
+        
+    }
+    
+    //https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/baskets?locale=en-AE
+    
+    func getBasketData(){
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "ov-dev.sssports.com"
+        components.path = "/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/baskets"
+        components.queryItems = [
+            URLQueryItem(name: "locale", value: "en-AE")
+        ]
+        guard let url = components.url else {return}
+        guard let token = UserDefaults.standard.string(forKey: "authToken") else {return}
+        let header = [
+            "Authorization" : "\(token)"
+        ]
+        APIManager.shared.fetchData(pageUrl: url.absoluteString, httpHeaders: header, dataModel: BasketDataModel.self) { (data, response, error) in
+            let response = (response as! HTTPURLResponse)
+            print(error?.localizedDescription)
+            guard let data = data, error == nil else {return}
+            
+            if response.statusCode == 200 {
+                print(data)
+            }
         }
         
     }
@@ -239,4 +268,5 @@ class LoginController: UIViewController {
         return cell
     }
 }
+
 

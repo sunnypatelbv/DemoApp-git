@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Italian Plate No2 Expanded Demibold.ttf">
+            <string>ItalianPlateNo2Expanded-Demibold</string>
+        </array>
+        <array key="Italian Plate No2 Expanded Light.ttf">
+            <string>ItalianPlateNo2Expanded-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CartProductCell" rowHeight="227" id="KGk-i7-Jjw" customClass="CartProductCell" customModule="SSS_task" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="227"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="425" height="227"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etx-69-2jd">
+                        <rect key="frame" x="16" y="16" width="393" height="203"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nike" translatesAutoresizingMaskIntoConstraints="NO" id="6Iz-La-fYe">
+                                <rect key="frame" x="8" y="8" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Iz-La-fYe" secondAttribute="height" multiplier="1:1" id="1lo-iT-6OK"/>
+                                    <constraint firstAttribute="width" constant="120" id="Og6-bN-XqO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Nike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfg-dd-v7j">
+                                <rect key="frame" x="136" y="8" width="44" height="22"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Men's Free RN 5.0 2021 Shoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0M-ed-HQG">
+                                <rect key="frame" x="136" y="36" width="189" height="26"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Size: EU 46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYQ-be-LnY">
+                                <rect key="frame" x="136" y="68" width="75.5" height="16"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tTI-hd-CSx">
+                                <rect key="frame" x="136" y="90" width="85" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Light" family="Italian Plate No2 Expanded" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limited Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcU-tm-O4y">
+                                <rect key="frame" x="136" y="111" width="90" height="15"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="15"/>
+                                <color key="textColor" red="0.83478743649999998" green="0.68121982579999996" blue="0.23843242000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated delivery by Sunday, December 03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVo-az-q9N">
+                                <rect key="frame" x="8" y="144" width="250" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyw-HY-nz5">
+                                <rect key="frame" x="16" y="176" width="20" height="17.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="WXj-QX-ekz"/>
+                                    <constraint firstAttribute="width" secondItem="Yyw-HY-nz5" secondAttribute="height" multiplier="1:1" id="afh-25-bbY"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="heart" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-Yh-leS">
+                                <rect key="frame" x="365" y="10" width="20" height="15.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cZV-Yh-leS" secondAttribute="height" multiplier="1:1" id="HBv-VX-Z0b"/>
+                                    <constraint firstAttribute="height" constant="20" id="nx9-KM-GNB"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="xmark" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 50.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uBu-Sj-cxm">
+                                <rect key="frame" x="229" y="90" width="70" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cZV-Yh-leS" secondAttribute="trailing" constant="8" id="2Tx-R5-T8E"/>
+                            <constraint firstItem="cZV-Yh-leS" firstAttribute="top" secondItem="etx-69-2jd" secondAttribute="top" constant="8" id="36L-vA-tjd"/>
+                            <constraint firstItem="6Iz-La-fYe" firstAttribute="top" secondItem="etx-69-2jd" secondAttribute="top" constant="8" id="5I4-yO-AD1"/>
+                            <constraint firstItem="Pfg-dd-v7j" firstAttribute="leading" secondItem="6Iz-La-fYe" secondAttribute="trailing" constant="8" id="7Sm-vn-wBY"/>
+                            <constraint firstItem="c0M-ed-HQG" firstAttribute="leading" secondItem="6Iz-La-fYe" secondAttribute="trailing" constant="8" id="7a0-b3-NlO"/>
+                            <constraint firstItem="Yyw-HY-nz5" firstAttribute="leading" secondItem="etx-69-2jd" secondAttribute="leading" constant="16" id="C9w-kj-6qC"/>
+                            <constraint firstItem="tTI-hd-CSx" firstAttribute="leading" secondItem="6Iz-La-fYe" secondAttribute="trailing" constant="8" id="EUd-rH-jqS"/>
+                            <constraint firstItem="c0M-ed-HQG" firstAttribute="top" secondItem="Pfg-dd-v7j" secondAttribute="bottom" constant="6" id="FYg-bI-Kbf"/>
+                            <constraint firstItem="6Iz-La-fYe" firstAttribute="leading" secondItem="etx-69-2jd" secondAttribute="leading" constant="8" id="Flw-QI-kPa"/>
+                            <constraint firstItem="uBu-Sj-cxm" firstAttribute="top" secondItem="c0M-ed-HQG" secondAttribute="bottom" constant="28" id="Fxa-xN-byL"/>
+                            <constraint firstItem="tTI-hd-CSx" firstAttribute="top" secondItem="FYQ-be-LnY" secondAttribute="bottom" constant="6" id="JaY-QU-KcM"/>
+                            <constraint firstItem="FYQ-be-LnY" firstAttribute="leading" secondItem="6Iz-La-fYe" secondAttribute="trailing" constant="8" id="Mog-Jy-ict"/>
+                            <constraint firstItem="Yyw-HY-nz5" firstAttribute="top" secondItem="aVo-az-q9N" secondAttribute="bottom" constant="16" id="NVs-ve-l64"/>
+                            <constraint firstItem="rcU-tm-O4y" firstAttribute="top" secondItem="tTI-hd-CSx" secondAttribute="bottom" constant="6" id="QQj-FB-gCr"/>
+                            <constraint firstItem="aVo-az-q9N" firstAttribute="top" secondItem="6Iz-La-fYe" secondAttribute="bottom" constant="16" id="WLH-NN-2Iy"/>
+                            <constraint firstItem="aVo-az-q9N" firstAttribute="leading" secondItem="etx-69-2jd" secondAttribute="leading" constant="8" id="Z2n-Eu-yjx"/>
+                            <constraint firstItem="FYQ-be-LnY" firstAttribute="top" secondItem="c0M-ed-HQG" secondAttribute="bottom" constant="6" id="eAn-7b-cDg"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="eYW-RL-TWu"/>
+                            <constraint firstItem="Pfg-dd-v7j" firstAttribute="top" secondItem="etx-69-2jd" secondAttribute="top" constant="8" id="hzR-Ea-5xP"/>
+                            <constraint firstItem="rcU-tm-O4y" firstAttribute="leading" secondItem="6Iz-La-fYe" secondAttribute="trailing" constant="8" id="zbT-yi-bbA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="etx-69-2jd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="9rq-O0-Ffn"/>
+                    <constraint firstAttribute="bottom" secondItem="etx-69-2jd" secondAttribute="bottom" constant="8" id="KRA-jC-NQk"/>
+                    <constraint firstItem="etx-69-2jd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Z3V-AJ-UEH"/>
+                    <constraint firstAttribute="trailing" secondItem="etx-69-2jd" secondAttribute="trailing" constant="16" id="xHz-lE-gW8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="121.0144927536232" y="96.763392857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="nike" width="1000" height="667"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

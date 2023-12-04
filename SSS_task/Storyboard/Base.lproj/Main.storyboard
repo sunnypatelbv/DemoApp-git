@@ -8,6 +8,14 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Italian Plate No2 Expanded Demibold.ttf">
+            <string>ItalianPlateNo2Expanded-Demibold</string>
+        </array>
+        <array key="Italian Plate No2 Expanded.ttf">
+            <string>ItalianPlateNo2Expanded-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -95,6 +103,9 @@
                                 <state key="normal" title="Buy now">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToCartBtnTapped:" destination="ubg-6V-QAd" eventType="touchUpInside" id="pVg-cD-1Ff"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kuo-3j-wd1"/>
@@ -212,7 +223,7 @@
             </objects>
             <point key="canvasLocation" x="1132" y="1540"/>
         </scene>
-        <!--Bag Home Page Controller-->
+        <!--Shopping Bag-->
         <scene sceneID="elW-10-1Cx">
             <objects>
                 <viewController id="c9n-ih-tdZ" customClass="BagHomePageController" customModule="SSS_task" customModuleProvider="target" sceneMemberID="viewController">
@@ -220,48 +231,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0yG-Ps-7tc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="742-y1-l35">
+                                <rect key="frame" x="0.0" y="88" width="414" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vaD-Qk-jef">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="B0b-Fh-X4N">
-                                        <rect key="frame" x="0.0" y="50" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aon-yS-XQX">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iSn-mc-xWH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                            </collectionView>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40a-mh-843">
+                                <rect key="frame" x="0.0" y="698" width="414" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-9P-Mgv">
+                                        <rect key="frame" x="8" y="49" width="398" height="50"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.74117647060000003" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="u6f-Ic-bNC"/>
+                                        </constraints>
+                                        <state key="normal" title="Checkout Securely">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSy-SB-i9w">
+                                        <rect key="frame" x="8" y="16" width="46.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Including 10.00 AED in taxes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bml-Ag-czW">
+                                        <rect key="frame" x="62.5" y="20" width="149" height="12"/>
+                                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Regular" family="Italian Plate No2 Expanded" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 588.30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoq-6S-YOg">
+                                        <rect key="frame" x="290.5" y="16" width="115.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="ItalianPlateNo2Expanded-Demibold" family="Italian Plate No2 Expanded" pointSize="22"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Kra-9P-Mgv" secondAttribute="bottom" constant="16" id="6Nn-8G-yB4"/>
+                                    <constraint firstAttribute="trailing" secondItem="aoq-6S-YOg" secondAttribute="trailing" constant="8" id="Ad0-Jf-qo0"/>
+                                    <constraint firstAttribute="height" constant="115" id="Jus-nH-mRw"/>
+                                    <constraint firstItem="aoq-6S-YOg" firstAttribute="top" secondItem="40a-mh-843" secondAttribute="top" constant="16" id="NSM-5k-0Ku"/>
+                                    <constraint firstItem="nSy-SB-i9w" firstAttribute="leading" secondItem="40a-mh-843" secondAttribute="leading" constant="8" id="OVM-sM-ZY2"/>
+                                    <constraint firstItem="Kra-9P-Mgv" firstAttribute="leading" secondItem="40a-mh-843" secondAttribute="leading" constant="8" id="OuQ-1x-BRO"/>
+                                    <constraint firstItem="bml-Ag-czW" firstAttribute="leading" secondItem="nSy-SB-i9w" secondAttribute="trailing" constant="8" id="dhW-0G-SRh"/>
+                                    <constraint firstItem="nSy-SB-i9w" firstAttribute="top" secondItem="40a-mh-843" secondAttribute="top" constant="16" id="mxs-oT-X2S"/>
+                                    <constraint firstItem="bml-Ag-czW" firstAttribute="top" secondItem="40a-mh-843" secondAttribute="top" constant="20" id="oCJ-y8-ut9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kra-9P-Mgv" secondAttribute="trailing" constant="8" id="oTe-tg-cPj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dls-Oz-w8u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0yG-Ps-7tc" firstAttribute="top" secondItem="dls-Oz-w8u" secondAttribute="top" id="IYy-US-7Ji"/>
-                            <constraint firstItem="0yG-Ps-7tc" firstAttribute="leading" secondItem="dls-Oz-w8u" secondAttribute="leading" id="Lf9-QI-o2u"/>
-                            <constraint firstItem="dls-Oz-w8u" firstAttribute="bottom" secondItem="0yG-Ps-7tc" secondAttribute="bottom" id="XGU-MV-nkV"/>
-                            <constraint firstItem="dls-Oz-w8u" firstAttribute="trailing" secondItem="0yG-Ps-7tc" secondAttribute="trailing" id="veC-Kf-Jtv"/>
+                            <constraint firstItem="40a-mh-843" firstAttribute="top" secondItem="742-y1-l35" secondAttribute="bottom" id="33N-4B-HMX"/>
+                            <constraint firstItem="742-y1-l35" firstAttribute="top" secondItem="dls-Oz-w8u" secondAttribute="top" id="Bdu-Vw-6ae"/>
+                            <constraint firstItem="742-y1-l35" firstAttribute="trailing" secondItem="dls-Oz-w8u" secondAttribute="trailing" id="NOE-Bq-G7S"/>
+                            <constraint firstItem="40a-mh-843" firstAttribute="leading" secondItem="dls-Oz-w8u" secondAttribute="leading" id="OOo-mL-aBZ"/>
+                            <constraint firstItem="dls-Oz-w8u" firstAttribute="trailing" secondItem="40a-mh-843" secondAttribute="trailing" id="Owf-C8-8yy"/>
+                            <constraint firstItem="40a-mh-843" firstAttribute="bottom" secondItem="dls-Oz-w8u" secondAttribute="bottom" id="Pw4-GE-UMU"/>
+                            <constraint firstItem="742-y1-l35" firstAttribute="leading" secondItem="dls-Oz-w8u" secondAttribute="leading" id="h5m-S5-pGK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tA2-c7-cai"/>
+                    <navigationItem key="navigationItem" title="Shopping Bag" id="tA2-c7-cai"/>
                     <connections>
-                        <outlet property="collectionView" destination="0yG-Ps-7tc" id="urz-Hb-cpl"/>
+                        <outlet property="tableView" destination="742-y1-l35" id="tTZ-6v-3fN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhs-Zb-Rpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="1540"/>
+            <point key="canvasLocation" x="-7.2463768115942031" y="1539.5089285714284"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="Ovl-H4-dDX">

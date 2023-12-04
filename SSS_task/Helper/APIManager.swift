@@ -8,6 +8,7 @@
 import UIKit
 
 public typealias JSON = [String: Any]
+public typealias JSONDict = [[String: Any]]
 public typealias HTTPHeaders = [String: String]
 
 //Singleton Design Pattern
@@ -68,10 +69,12 @@ final class APIManager{
     //POST API Function
     func postRequest<T: Codable>(url: String,
                                  body: JSON? = nil,
+                                 bodyDict: JSONDict? = nil,
                                  httpHeaders: HTTPHeaders? = nil,
                                  type: T.Type,
                                  completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) {
         if let url = URL(string: url){
+            print(url)
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             if let httpHeader = httpHeaders{
@@ -80,6 +83,9 @@ final class APIManager{
             }
             if let body = body {
                 request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+            }
+            if let bodyDict = bodyDict{
+                request.httpBody = try? JSONSerialization.data(withJSONObject: bodyDict, options: .prettyPrinted)
             }
             
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -90,17 +96,28 @@ final class APIManager{
                     return
                 }
                 let httpResponse = (response as! HTTPURLResponse)
-                guard (200...299) ~= httpResponse.statusCode else{
-                    print("StatusCode \(httpResponse.statusCode)")
-                    return
+                print("StatusCode ~~ \(httpResponse.statusCode)")
+                if (200...299) ~= httpResponse.statusCode {
+                    do{
+                        let jsonData = try JSONDecoder().decode(T.self, from: data)
+                        completionHandler(jsonData,response,error)
+                    }
+                    catch{
+                        completionHandler(nil,response,error)
+                    }
                 }
-                do{
-                    let jsonData = try JSONDecoder().decode(T.self, from: data)
-                    print(jsonData)
-                    completionHandler(jsonData,response,error)
+                else if (400...499) ~= httpResponse.statusCode{
+                    do {
+                        let errorData = try JSONDecoder().decode(T.self, from: data)
+                        print(error?.localizedDescription)
+                        completionHandler(errorData,response,error)
+                    }
+                    catch {
+                        print(error)
+                    }
                 }
-                catch{
-                    completionHandler(nil,response,error)
+                else{
+                    print(error?.localizedDescription)
                 }
             }
             task.resume()

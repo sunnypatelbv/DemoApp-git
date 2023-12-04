@@ -31,11 +31,12 @@ class ProductDescriptionCell: UITableViewCell {
     
     //MARK: Functions
     func showData(model: PDPModel){
+        print(model.name)
         if let brand = model.brand {
             brandName.text = brand
         }
-        if let name  = model.cProductURLName{
-            productName.text = name.rawValue
+        if let name  = model.name{
+            productName.text = name
         }
         if let ogprice = model.cListPrice{
             originalPrice.text = "AED. \(ogprice).00"
