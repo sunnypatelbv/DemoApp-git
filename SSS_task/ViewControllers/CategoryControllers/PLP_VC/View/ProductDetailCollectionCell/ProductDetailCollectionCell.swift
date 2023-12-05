@@ -61,7 +61,7 @@ class ProductDetailCollectionCell: UICollectionViewCell {
         originalPriceLabel.attributedText = attributeString
         // Initialization code
     }
-    
+        
     
     //MARK: Functions
     
@@ -91,6 +91,7 @@ class ProductDetailCollectionCell: UICollectionViewCell {
                 if let response = response as? HTTPURLResponse{
                     if response.statusCode == 200 {
                         print("Success")
+                        print(data)
                     }
                     else if response.statusCode == 401{
                         if data.fault?.type == "InvalidAuthorizationHeaderException" || data.fault?.type == "ExpiredTokenException"{

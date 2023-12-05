@@ -18,8 +18,10 @@ class CustomTableHeaderView: UITableViewHeaderFooterView, UITextViewDelegate {
     
     
     override func awakeFromNib() {
+        
+        
         if let name = UserDefaults.standard.string(forKey: "UserName"){
-            nameLabel.text = "HI,\(name)"
+            nameLabel.text = "Hi,\(name)"
         }
         
         let text = NSMutableAttributedString(string: "")

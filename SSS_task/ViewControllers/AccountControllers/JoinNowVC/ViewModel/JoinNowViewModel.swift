@@ -26,4 +26,7 @@ class JoinNowViewModel{
         RegistrationModel(isBtn: false, btnTitle: "", btnImage: "", isLbl: false, lblText: "", isTextField: false, txtPlaceholder: "",txtFieldValue: "", error: "", isSecure: false, isOption: false, isLblWithCheckbox: false, isAttributedText: true, identifier: .alreadyMember,validationType: .none)
     ]
     var isEmailCell = true
+    var userLoggedin: Bool {
+        UserDefaults.standard.bool(forKey: "isUserLoggedInUserDefault")
+    }
 }

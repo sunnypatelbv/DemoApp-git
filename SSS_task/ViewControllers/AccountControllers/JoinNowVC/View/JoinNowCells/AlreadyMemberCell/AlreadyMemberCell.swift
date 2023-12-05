@@ -16,8 +16,10 @@ class AlreadyMemberCell: UITableViewCell {
     var goToLogin : ((String) -> ())?
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         selectionStyle = .none
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         tap.numberOfTapsRequired = 1

@@ -28,8 +28,6 @@ class AccountViewController: UIViewController {
         tableView.register(UINib(nibName: "MySSSPointsCell", bundle: nil), forCellReuseIdentifier: "MySSSPointsCell")
         self.navigationController?.navigationBar.isHidden = true
         
-        
-        
         // Do any additional setup after loading the view.
     }
     

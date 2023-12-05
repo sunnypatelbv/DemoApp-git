@@ -147,6 +147,7 @@ class LoginController: UIViewController {
                 print(data.baskets?[0].basketID)
                 guard let basket_id = data.baskets?[0].basketID  else {return}
                 if basket_id != nil{
+                    self.createBasket()
                     print(basket_id)
                 }
                 else {
@@ -157,20 +158,25 @@ class LoginController: UIViewController {
         
     }
     
+    
+    //https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/baskets
     func createBasket(){
         print("Creating new basket")
         var components = URLComponents()
         components.scheme = "https"
         components.host = "ov-dev.sssports.com"
-        components.path = "/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/baskets"
-        components.queryItems = [
-            URLQueryItem(name: "locale", value: "en-AE")
-        ]
+        components.path = "/s/UAE/dw/shop/v20_10/baskets"
         guard let url = components.url else {return}
         guard let token = UserDefaults.standard.string(forKey: "authToken") else {return}
         let header = [
             "Authorization" : "\(token)"
         ]
+        
+        APIManager.shared.postRequest(url: url.absoluteString, type: Basket.self) { data, response, error in
+            let response = response as! HTTPURLResponse
+            print(error?.localizedDescription)
+            
+        }
     }
     
     

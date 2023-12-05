@@ -26,6 +26,8 @@ class WishlistViewModel{
     
     
     func fetchData(completionHandler: @escaping (Int, [CustomerProductListItem]) -> ()){
+        
+        //https://ov-dev.sssports.com/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/product_lists
         var components = URLComponents()
         components.scheme = "https"
         components.host = "ov-dev.sssports.com"
@@ -37,8 +39,9 @@ class WishlistViewModel{
         ]
         APIManager.shared.fetchData(pageUrl: url.absoluteString, httpHeaders: header, dataModel: WishlistModel.self) { (data,response, error) in
             guard let wishlistData = data else {return}
-            print(wishlistData.data?[5].customerProductListItems?.count)
-            if let counter = (wishlistData.data?[5].customerProductListItems?.count), let wishlist = wishlistData.data?[5].customerProductListItems{
+            print(wishlistData.data?[3].customerProductListItems?.count)
+            print(wishlistData.data?[3].customerProductListItems)
+            if let counter = (wishlistData.data?[3].customerProductListItems?.count), let wishlist = wishlistData.data?[3].customerProductListItems{
                 self.delegate?.onSuccess()
                 completionHandler(counter,wishlist)
             } else {
