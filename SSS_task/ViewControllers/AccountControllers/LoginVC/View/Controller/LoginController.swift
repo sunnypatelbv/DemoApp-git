@@ -66,8 +66,11 @@ class LoginController: UIViewController {
             let email = loginViewModel.dataArr[0].txtFieldValue
             let password = loginViewModel.dataArr[2].txtFieldValue
             let loginString = String(format: "%@:%@", email, password)
+            print(loginString)
             let loginData = loginString.data(using: String.Encoding.utf8)!
+            print(loginData)
             let base64LoginString = loginData.base64EncodedString()
+            print(base64LoginString)
             UserDefaults.standard.set(base64LoginString, forKey: "basicKey")
             var components = URLComponents()
             components.scheme = "https"
@@ -85,7 +88,7 @@ class LoginController: UIViewController {
             let header = [
                 "Authorization" : "Basic \(basic)"
             ]
-            
+            print(basic)
             APIManager.shared.postRequest(url: url.absoluteString, body: parameters, httpHeaders: header, type: LoginResponseData.self) { (data, response, error) in
                 print(url)
                 let response = (response as! HTTPURLResponse)
@@ -141,10 +144,33 @@ class LoginController: UIViewController {
             guard let data = data, error == nil else {return}
             
             if response.statusCode == 200 {
-                print(data)
+                print(data.baskets?[0].basketID)
+                guard let basket_id = data.baskets?[0].basketID  else {return}
+                if basket_id != nil{
+                    print(basket_id)
+                }
+                else {
+                    self.createBasket()
+                }
             }
         }
         
+    }
+    
+    func createBasket(){
+        print("Creating new basket")
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "ov-dev.sssports.com"
+        components.path = "/s/UAE/dw/shop/v20_10/customers/bcbpcY1HgG9oyITnupOjaFha8w/baskets"
+        components.queryItems = [
+            URLQueryItem(name: "locale", value: "en-AE")
+        ]
+        guard let url = components.url else {return}
+        guard let token = UserDefaults.standard.string(forKey: "authToken") else {return}
+        let header = [
+            "Authorization" : "\(token)"
+        ]
     }
     
     

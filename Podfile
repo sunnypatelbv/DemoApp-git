@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '14.0'
 
 target 'SSS_task' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,8 +7,8 @@ target 'SSS_task' do
 pod 'MaterialComponents/TextControls+FilledTextFields'
   # Pods for SSS_task
 pod 'SkyFloatingLabelTextField', '~> 3.0'
-pod 'SimpleCheckbox'
 pod "PickerView"
+pod 'SimpleCheckbox'
 pod 'CountryPickerView'
 pod 'Alamofire', '~> 5.0.2'
 end

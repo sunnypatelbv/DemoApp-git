@@ -80,9 +80,16 @@ extension FormFieldCell : UITextFieldDelegate{
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+//        tftText?(text)
+//        return true
+//    }
+    
+    @IBAction func editingChanged(_ textField:UITextField) {
+        guard let text = textField.text else {
+            return
+        }
         tftText?(text)
-        return true
     }
 }
