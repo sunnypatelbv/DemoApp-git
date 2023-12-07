@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -146,6 +146,7 @@
 		40CD05452ABC49A00075494F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD05442ABC49A00075494F /* LoginController.swift */; };
 		40E7282E2B15B3EC00B980A3 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E7282D2B15B3EC00B980A3 /* ErrorResponse.swift */; };
 		40F46A872ADFDEBC00550C7C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F46A862ADFDEBC00550C7C /* Constant.swift */; };
+		E1A6B2282B20AC3D00495F72 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6B2272B20AC3D00495F72 /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +293,7 @@
 		607AE12A70B885C1669E9484 /* Pods-SSS_task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSS_task.debug.xcconfig"; path = "Target Support Files/Pods-SSS_task/Pods-SSS_task.debug.xcconfig"; sourceTree = "<group>"; };
 		7D37294B9BB0EB3CC57FB6B2 /* Pods-SSS_task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSS_task.release.xcconfig"; path = "Target Support Files/Pods-SSS_task/Pods-SSS_task.release.xcconfig"; sourceTree = "<group>"; };
 		CEE139F9936CC517FF53A850 /* Pods_SSS_task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSS_task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A6B2272B20AC3D00495F72 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +392,7 @@
 		4023052A2AE0FD37003B9B24 /* AccountControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1A6B2262B20AC1E00495F72 /* ProfileVC */,
 				4023052E2AE0FD7F003B9B24 /* AccountHomeControllers */,
 				406F52C62AD7C41F003926EF /* LoginVC */,
 				406F52C22AD7C228003926EF /* JoinNowVC */,
@@ -1391,6 +1394,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E1A6B2262B20AC1E00495F72 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				E1A6B2272B20AC3D00495F72 /* ProfileVC.swift */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1581,6 +1592,7 @@
 				407DBAB92B19AC9C00EC877C /* OrderSummaryCell.swift in Sources */,
 				40F46A872ADFDEBC00550C7C /* Constant.swift in Sources */,
 				40423A892ACFFAF000B538C0 /* ProductCell.swift in Sources */,
+				E1A6B2282B20AC3D00495F72 /* ProfileVC.swift in Sources */,
 				405CB8722ACC321D006CB598 /* PreviewImageCollectionCell.swift in Sources */,
 				40423A832ACFEB2F00B538C0 /* SectionHeaderCell.swift in Sources */,
 				40C846792AD7EBB500FF17E0 /* CollectionHeaderView.swift in Sources */,

@@ -14,17 +14,23 @@ class AccountOptionsViewCell: UITableViewCell {
     
     //MARK: Variables
     var iconsArr = [
-        IconsModel(iconTitle: "Orders", iconImgName: "orders"),
-        IconsModel(iconTitle: "Stores", iconImgName: "stores"),
-        IconsModel(iconTitle: "Settings", iconImgName: "settings")
+        IconsModel(iconTitle: "Orders", iconImgName: "orders", identifier: .order),
+        IconsModel(iconTitle: "Stores", iconImgName: "stores", identifier: .store),
+        IconsModel(iconTitle: "Settings", iconImgName: "settings", identifier: .setting)
     ]
     
-    //    var iconsArrLogin = [
-    //        IconsModel(iconTitle: "Orders", iconImgName: "orders"),
-    //        IconsModel(iconTitle: "Returns", iconImgName: "stores"),
-    //        IconsModel(iconTitle: "Payment Methods", iconImgName: "settings"),
-    //        IconsModel(iconTitle: "Stores", iconImgName: "stores")
-    //    ]
+    var iconsArrLoggedin = [
+        IconsModel(iconTitle: "Orders", iconImgName: "orders", identifier: .order
+                  ),
+        IconsModel(iconTitle: "Returns", iconImgName: "stores", identifier: .returns),
+        IconsModel(iconTitle: "Payment", iconImgName: "settings", identifier: .payment),
+        IconsModel(iconTitle: "Stores", iconImgName: "stores", identifier: .store)
+    ]
+    
+    var userDefault: Bool {
+        UserDefaults.standard.bool(forKey: "isUserLoggedInUserDefault")
+    }
+    
     var changeVC: ((String) -> ())?
     
     
@@ -47,23 +53,43 @@ class AccountOptionsViewCell: UITableViewCell {
 //MARK: UICollectionView Delegates and DataSource
 extension AccountOptionsViewCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return iconsArr.count
+        if userDefault {
+            return iconsArrLoggedin.count
+        }
+        else {
+            return iconsArr.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let model = iconsArr[indexPath.row]
+        var model: IconsModel?
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountOptionsCollectionCell", for: indexPath) as? AccountOptionsCollectionCell else { return UICollectionViewCell() }
+        if userDefault {
+            model = iconsArrLoggedin[indexPath.row]
+        }
+        else {
+            model = iconsArr[indexPath.row]
+        }
         
-        if model.iconTitle == "Orders"{
+        switch model?.identifier{
+        case .order:
             cell.imageView.image = UIImage(named: "orders")
-            cell.lblImage.text = "Orders"
-        } else if model.iconTitle == "Stores" {
+            cell.lblImage.text = model?.iconTitle
+        case .store:
             cell.imageView.image = UIImage(named: "stores")
-            cell.lblImage.text = "Stores"
-        } else if model.iconTitle == "Settings"{
+            cell.lblImage.text = model?.iconTitle
+        case .setting:
             cell.imageView.image = UIImage(named: "settings")
-            cell.lblImage.text = "Settings"
+            cell.lblImage.text = model?.iconTitle
+        case .payment:
+            cell.imageView.image = UIImage(named: "orders")
+            cell.lblImage.text = model?.iconTitle
+        case .returns:
+            cell.imageView.image = UIImage(named: "stores")
+            cell.lblImage.text = model?.iconTitle
+        default:
+            return UICollectionViewCell()
         }
         
         
@@ -71,11 +97,17 @@ extension AccountOptionsViewCell : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right:10)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right:20)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 74)
+        return CGSize(width: 70, height: 74)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

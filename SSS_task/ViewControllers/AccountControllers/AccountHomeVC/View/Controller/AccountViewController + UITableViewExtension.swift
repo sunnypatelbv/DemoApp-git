@@ -56,6 +56,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case .helpOptions:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "AppOptionsViewCell", for: indexPath) as? AppOptionsViewCell {
+                cell.setupCell(model!.identifier)
                 return cell
             }
         case .gamePointsBanner:
@@ -69,6 +70,11 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case .accountOptions:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "AppOptionsViewCell", for: indexPath) as? AppOptionsViewCell {
+                cell.setupCell(model!.identifier)
+                cell.changeVC = { [weak self] value in
+                    guard let objVC = self?.storyboard?.instantiateViewController(identifier: "ProfileVC") as? ProfileVC else {return}
+                    self?.navigationController?.pushViewController(objVC, animated: true)
+                }
                 return cell
             }
         case .none:

@@ -39,6 +39,10 @@ class WishlistViewModel{
         ]
         APIManager.shared.fetchData(pageUrl: url.absoluteString, httpHeaders: header, dataModel: WishlistModel.self) { (data,response, error) in
             guard let wishlistData = data else {return}
+            // Higher Order functions
+            
+//            let dummy = wishlistData.data?.filter { $0.customerProductListItems?.count ?? 0 > 0}
+//            print(dummy)
             print(wishlistData.data?[3].customerProductListItems?.count)
             print(wishlistData.data?[3].customerProductListItems)
             if let counter = (wishlistData.data?[3].customerProductListItems?.count), let wishlist = wishlistData.data?[3].customerProductListItems{

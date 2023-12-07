@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E8A9699-48AA-4F3B-B03E-4E070467F1CA"
-            shouldBeEnabled = "Yes"
+            uuid = "0515F513-C594-43DC-B0EA-8515B5F92460"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SSS_task/ViewControllers/CategoryControllers/PLP_VC/View/ProductDetailCollectionCell/ProductDetailCollectionCell.swift"
+            filePath = "SSS_task/ViewControllers/AccountControllers/AccountHomeVC/View/AccountHomeCells/AppOptionsViewCell/AppOptionsViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "fetchData()"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "AppOptionsViewCell"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80ADCE90-5E22-4D2D-8BDF-97ADF3AFD81A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SSS_task/ViewControllers/AccountControllers/AccountHomeVC/View/Controller/AccountViewController + UITableViewExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
